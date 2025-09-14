@@ -100,7 +100,7 @@ const PhysicalWellness = () => {
       
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-playfair font-bold text-sage-dark mb-4">
+          <h1 className="text-4xl font-playfair font-bold text-gradient-physical mb-4">
             Bien-être physique
           </h1>
           <p className="text-lg text-muted-foreground">
@@ -136,7 +136,7 @@ const PhysicalWellness = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {mealPlans.map((plan) => (
                 <Card key={plan.id} className="overflow-hidden hover-scale">
-                  <div className="aspect-video bg-gradient-primary rounded-t-lg relative">
+                  <div className="aspect-video bg-gradient-to-r from-vert-pale to-dore-clair rounded-t-lg relative">
                     <img
                       src={`https://images.unsplash.com/${plan.image}?w=400&h=200&fit=crop`}
                       alt={plan.title}
@@ -173,7 +173,7 @@ const PhysicalWellness = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {exercises.map((exercise) => (
                 <Card key={exercise.id} className="overflow-hidden hover-scale">
-                  <div className="aspect-video bg-gradient-primary rounded-t-lg relative">
+                  <div className="aspect-video bg-gradient-to-r from-orange-lyloo to-vert-pale rounded-t-lg relative">
                     <img
                       src={`https://images.unsplash.com/${exercise.image}?w=400&h=200&fit=crop`}
                       alt={exercise.title}
@@ -221,7 +221,7 @@ const PhysicalWellness = () => {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {recipes.map((recipe) => (
                   <Card key={recipe.id} className="overflow-hidden hover-scale">
-                    <div className="aspect-video bg-gradient-primary rounded-t-lg relative">
+                    <div className="aspect-video bg-gradient-to-r from-dore-clair to-orange-lyloo rounded-t-lg relative">
                       <img
                         src={recipe.image_url || 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=200&fit=crop'}
                         alt={recipe.title}

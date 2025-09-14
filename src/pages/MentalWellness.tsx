@@ -142,7 +142,7 @@ const MentalWellness = () => {
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center space-y-4 mb-8 fade-in-up">
-          <h1 className="font-playfair text-3xl md:text-4xl font-bold text-gradient-sage">
+          <h1 className="font-playfair text-3xl md:text-4xl font-bold text-gradient-mental">
             Bien-être Mental
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -173,7 +173,7 @@ const MentalWellness = () => {
                   variant={activeFilter === category.name ? "default" : "outline"}
                   onClick={() => setActiveFilter(category.name)}
                   className={`rounded-full ${
-                    activeFilter === category.name ? "btn-sage" : ""
+                    activeFilter === category.name ? "btn-mental" : ""
                   }`}
                 >
                   <IconComponent className="h-4 w-4 mr-2" />

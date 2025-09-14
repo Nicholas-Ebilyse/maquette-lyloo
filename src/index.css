@@ -78,10 +78,16 @@ All colors MUST be HSL.
 
     /* LYLOO Brand Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--vert-pale)));
-    --gradient-mental: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--terracotta-lyloo)));
-    --gradient-physical: linear-gradient(135deg, hsl(var(--vert-pale)), hsl(var(--dore-clair)));
+    --gradient-mental: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--marron-chaud)), hsl(var(--terracotta-lyloo)));
+    --gradient-physical: linear-gradient(135deg, hsl(var(--vert-pale)), hsl(var(--dore-clair)), hsl(var(--orange-lyloo)));
     --gradient-warm: linear-gradient(135deg, hsl(var(--terracotta-lyloo)), hsl(var(--orange-lyloo)));
     --gradient-calm: linear-gradient(180deg, hsl(var(--beige-lyloo)), hsl(var(--background)));
+    
+    /* Specialized wellness gradients */
+    --gradient-mental-wellness: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--marron-chaud)));
+    --gradient-mental-accent: linear-gradient(90deg, hsl(var(--terracotta-lyloo)), hsl(var(--vert-eau)));
+    --gradient-physical-wellness: linear-gradient(135deg, hsl(var(--vert-pale)), hsl(var(--dore-clair)));
+    --gradient-physical-accent: linear-gradient(90deg, hsl(var(--orange-lyloo)), hsl(var(--vert-pale)));
 
     /* LYLOO Brand Shadows */
     --shadow-soft: 0 4px 20px hsl(var(--vert-eau) / 0.1);
@@ -180,15 +186,25 @@ All colors MUST be HSL.
   }
 
   .btn-mental {
-    background: var(--gradient-mental);
+    background: var(--gradient-mental-wellness);
     @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
     box-shadow: var(--shadow-mental);
   }
 
   .btn-physical {
-    background: var(--gradient-physical);
+    background: var(--gradient-physical-wellness);
     @apply text-anthracite shadow-lg hover:shadow-xl transition-all duration-300;
     box-shadow: var(--shadow-physical);
+  }
+
+  .btn-mental-accent {
+    background: var(--gradient-mental-accent);
+    @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  .btn-physical-accent {
+    background: var(--gradient-physical-accent);
+    @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
   }
 
   .btn-warm {
@@ -219,14 +235,14 @@ All colors MUST be HSL.
   }
 
   .text-gradient-mental {
-    background: var(--gradient-mental);
+    background: var(--gradient-mental-wellness);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-physical {
-    background: var(--gradient-physical);
+    background: var(--gradient-physical-wellness);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
