@@ -95,15 +95,18 @@ const PhysicalWellness = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-vert-pale via-dore-clair/30 to-orange-lyloo/20">
+    <div className="min-h-screen bg-gradient-to-br from-dore-clair via-vert-pale/30 to-orange-lyloo/20">
       <Navigation />
       
       <div className="container mx-auto px-4 py-8">
         {/* Header with Enhanced Brand Colors */}
-        <div className="mb-8 bg-beige-lyloo/95 rounded-3xl p-8 shadow-xl border border-dore-clair/50">
-          <h1 className="text-4xl font-playfair font-bold text-anthracite mb-4">
-            Bien-être physique Lyloo
-          </h1>
+        <div className="mb-8 bg-gradient-to-r from-dore-clair/90 to-orange-lyloo/80 rounded-3xl p-8 shadow-xl border border-dore-clair/50">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <img src="/src/assets/physical-wellness-icon.png" alt="Physical wellness" className="h-12 w-12" />
+            <h1 className="text-4xl font-playfair font-bold text-anthracite">
+              Bien-être physique Lyloo
+            </h1>
+          </div>
           <p className="text-anthracite text-lg mb-6">
             Transformez votre corps et votre esprit avec nos programmes personnalisés
           </p>

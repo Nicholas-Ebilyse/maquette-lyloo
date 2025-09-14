@@ -48,7 +48,7 @@ const ContentCard = ({
   return (
     <div className="card-physical group rounded-2xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
       {/* Image Header */}
-      <div className="relative h-48 bg-gradient-to-br from-dore-clair to-orange-lyloo overflow-hidden">
+      <div className="relative h-48 bg-gradient-to-br from-vert-eau to-marron-chaud overflow-hidden">
         {image ? (
           <img 
             src={image} 
@@ -71,11 +71,11 @@ const ContentCard = ({
         )}
 
         {/* Play Button Overlay */}
-        <div className="absolute inset-0 bg-marron-chaud/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className="absolute inset-0 bg-terracotta-lyloo/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <Button
             onClick={onPlay}
             size="lg"
-            className="bg-gradient-to-r from-marron-chaud to-terracotta-lyloo text-white rounded-full h-16 w-16 shadow-2xl"
+            className="bg-gradient-to-r from-vert-eau to-marron-chaud text-white rounded-full h-16 w-16 shadow-2xl"
           >
             <Play className="h-6 w-6 ml-1" fill="currentColor" />
           </Button>
@@ -97,10 +97,10 @@ const ContentCard = ({
       </div>
 
       {/* Content */}
-      <div className="p-6 space-y-4 bg-gradient-to-br from-beige-lyloo to-vert-pale/30">
+      <div className="p-6 space-y-4 bg-gradient-to-br from-beige-lyloo to-terracotta-lyloo/30">
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <Badge variant="outline" className="text-xs border-dore-clair bg-dore-clair/20 text-anthracite">
+            <Badge variant="outline" className="text-xs border-vert-eau bg-vert-eau/20 text-anthracite">
               {category}
             </Badge>
             <Badge className={`text-xs ${getDifficultyBadgeClasses(level)}`}>
@@ -143,7 +143,7 @@ const ContentCard = ({
 
         <Button 
           onClick={onPlay}
-          className="w-full bg-gradient-to-r from-dore-clair to-orange-lyloo text-anthracite hover:shadow-xl transition-all duration-300"
+          className="w-full bg-terracotta-lyloo text-anthracite hover:shadow-xl transition-all duration-300"
         >
           <Play className="h-4 w-4 mr-2" />
           Commencer la séance

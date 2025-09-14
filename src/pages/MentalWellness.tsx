@@ -141,10 +141,13 @@ const MentalWellness = () => {
       
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="text-center space-y-4 mb-8 fade-in-up bg-beige-lyloo/95 rounded-3xl p-8 shadow-xl border border-vert-eau/30">
-          <h1 className="font-playfair text-3xl md:text-4xl font-bold text-anthracite">
-            Bien-être Mental
-          </h1>
+        <div className="text-center space-y-4 mb-8 fade-in-up bg-gradient-to-r from-vert-eau/90 to-marron-chaud/80 rounded-3xl p-8 shadow-xl border border-vert-eau/30">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <img src="/src/assets/mental-wellness-icon.png" alt="Mental wellness" className="h-12 w-12" />
+            <h1 className="font-playfair text-3xl md:text-4xl font-bold text-anthracite">
+              Bien-être Mental
+            </h1>
+          </div>
           <p className="text-anthracite text-lg max-w-2xl mx-auto">
             Découvrez nos contenus audio et vidéo pour cultiver votre sérénité intérieure
           </p>
