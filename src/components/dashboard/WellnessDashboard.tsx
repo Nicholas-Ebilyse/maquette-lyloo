@@ -50,7 +50,7 @@ const WellnessDashboard = () => {
   return (
     <div className="space-y-6">
       {/* Welcome Section */}
-      <div className="wellness-card p-6 bg-gradient-to-r from-sage/10 to-primary/10">
+      <div className="wellness-card p-6 bg-gradient-to-r from-vert-eau/20 via-terracotta-lyloo/10 to-marron-chaud/5 border border-vert-eau/20">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="font-playfair text-2xl md:text-3xl font-bold text-foreground">

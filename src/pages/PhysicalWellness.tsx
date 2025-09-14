@@ -95,17 +95,36 @@ const PhysicalWellness = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
+    <div className="min-h-screen bg-gradient-to-br from-vert-pale/10 via-background to-dore-clair/5">
       <Navigation />
       
       <div className="container mx-auto px-4 py-8">
+        {/* Header with Enhanced Brand Colors */}
         <div className="mb-8">
           <h1 className="text-4xl font-playfair font-bold text-gradient-physical mb-4">
-            Bien-être physique
+            Bien-être physique Lyloo
           </h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-marron-chaud/80 text-lg mb-6">
             Transformez votre corps et votre esprit avec nos programmes personnalisés
           </p>
+          
+          {/* Hero Images Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <img 
+                src="/src/assets/lyloo-yoga-nature.jpg" 
+                alt="Yoga en pleine nature - bien-être physique" 
+                className="w-full h-48 object-cover"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <img 
+                src="/src/assets/lyloo-yoga-studio.jpg" 
+                alt="Séance de yoga en studio - exercice physique" 
+                className="w-full h-48 object-cover"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Search and filters */}
@@ -135,17 +154,17 @@ const PhysicalWellness = () => {
           <TabsContent value="meals" className="space-y-6">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {mealPlans.map((plan) => (
-                <Card key={plan.id} className="overflow-hidden hover-scale">
-                  <div className="aspect-video bg-gradient-to-r from-vert-pale to-dore-clair rounded-t-lg relative">
-                    <img
-                      src={`https://images.unsplash.com/${plan.image}?w=400&h=200&fit=crop`}
-                      alt={plan.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <Badge className="absolute top-3 right-3 bg-white/90 text-sage-dark">
-                      {plan.duration}
-                    </Badge>
-                  </div>
+                 <Card key={plan.id} className="overflow-hidden hover-scale border border-vert-pale/30">
+                   <div className="aspect-video bg-gradient-to-r from-vert-pale to-dore-clair rounded-t-lg relative">
+                     <img
+                       src="/src/assets/lyloo-healthy-salad.jpg"
+                       alt={plan.title}
+                       className="w-full h-full object-cover"
+                     />
+                     <Badge className="absolute top-3 right-3 bg-terracotta-lyloo/90 text-white">
+                       {plan.duration}
+                     </Badge>
+                   </div>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Utensils className="h-5 w-5 text-primary" />
@@ -158,10 +177,10 @@ const PhysicalWellness = () => {
                       <Badge className={getDifficultyBadgeClasses(plan.difficulty)}>
                         {plan.difficulty}
                       </Badge>
-                      <Button size="sm">
-                        <ShoppingCart className="h-4 w-4 mr-2" />
-                        Démarrer
-                      </Button>
+                       <Button size="sm" className="btn-physical">
+                         <ShoppingCart className="h-4 w-4 mr-2" />
+                         Démarrer
+                       </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -171,21 +190,21 @@ const PhysicalWellness = () => {
 
           <TabsContent value="exercises" className="space-y-6">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {exercises.map((exercise) => (
-                <Card key={exercise.id} className="overflow-hidden hover-scale">
-                  <div className="aspect-video bg-gradient-to-r from-orange-lyloo to-vert-pale rounded-t-lg relative">
-                    <img
-                      src={`https://images.unsplash.com/${exercise.image}?w=400&h=200&fit=crop`}
-                      alt={exercise.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <Badge className="absolute top-3 right-3 bg-white/90 text-sage-dark">
-                      {exercise.duration}
-                    </Badge>
-                    <Badge className="absolute top-3 left-3 bg-primary/90 text-white">
-                      {exercise.type}
-                    </Badge>
-                  </div>
+               {exercises.map((exercise) => (
+                 <Card key={exercise.id} className="overflow-hidden hover-scale border border-orange-lyloo/30">
+                   <div className="aspect-video bg-gradient-to-r from-orange-lyloo to-vert-pale rounded-t-lg relative">
+                     <img
+                       src="/src/assets/lyloo-yoga-nature.jpg"
+                       alt={exercise.title}
+                       className="w-full h-full object-cover"
+                     />
+                     <Badge className="absolute top-3 right-3 bg-marron-chaud/90 text-white">
+                       {exercise.duration}
+                     </Badge>
+                     <Badge className="absolute top-3 left-3 bg-dore-clair/90 text-marron-chaud">
+                       {exercise.type}
+                     </Badge>
+                   </div>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Activity className="h-5 w-5 text-primary" />

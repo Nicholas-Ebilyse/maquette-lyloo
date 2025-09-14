@@ -82,12 +82,12 @@ const DailyQuote = () => {
 
   return (
     <div className="relative overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-sage-light via-primary to-sage-dark opacity-10"></div>
+      {/* Background Gradient with LYLOO brand colors */}
+      <div className="absolute inset-0 bg-gradient-to-br from-vert-eau/10 via-terracotta-lyloo/5 to-marron-chaud/10"></div>
       
       <div className="wellness-card relative p-8 md:p-12 text-center space-y-6">
-        {/* Category Badge */}
-        <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
+        {/* Category Badge with brand colors */}
+        <div className="inline-flex items-center px-3 py-1 rounded-full bg-vert-eau/20 text-marron-chaud border border-vert-eau/30 text-sm font-medium">
           {quote.category}
         </div>
 

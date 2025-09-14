@@ -67,25 +67,35 @@ const Profile = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
+    <div className="min-h-screen bg-gradient-to-br from-beige-lyloo via-background to-vert-eau/5">
       <Navigation />
       
       <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl font-playfair font-bold text-sage-dark mb-4">
-            Mon profil
+        {/* Header with LYLOO Branding */}
+        <div className="mb-8 text-center">
+          <h1 className="text-4xl font-playfair font-bold text-gradient-mental mb-4">
+            Mon profil Lyloo
           </h1>
-          <p className="text-lg text-muted-foreground">
-            Gérez vos informations personnelles et suivez votre progression
+          <p className="text-marron-chaud/80 text-lg">
+            Gérez vos informations personnelles et suivez votre progression bien-être
           </p>
+          
+          {/* Decorative Hero Image */}
+          <div className="max-w-sm mx-auto mt-6 rounded-2xl overflow-hidden shadow-lg">
+            <img 
+              src="/src/assets/lyloo-wellness-space.jpg" 
+              alt="Espace bien-être Lyloo" 
+              className="w-full h-32 object-cover"
+            />
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Profile Card */}
           <div className="lg:col-span-1">
-            <Card className="text-center">
+            <Card className="text-center border border-vert-eau/30 bg-gradient-to-br from-beige-lyloo/50 to-vert-eau/10">
               <CardHeader>
-                <div className="w-24 h-24 mx-auto bg-gradient-primary rounded-full flex items-center justify-center mb-4">
+                <div className="w-24 h-24 mx-auto bg-gradient-mental rounded-full flex items-center justify-center mb-4 shadow-lg">
                   <User className="h-12 w-12 text-white" />
                 </div>
                 <CardTitle className="text-xl">
@@ -94,12 +104,12 @@ const Profile = () => {
                 <CardDescription>{profileData.email}</CardDescription>
                 <div className="flex justify-center mt-4">
                   {isPremium ? (
-                    <Badge className="bg-gradient-primary text-white">
+                    <Badge className="bg-gradient-mental text-white shadow-lg">
                       <Crown className="h-4 w-4 mr-1" />
-                      Premium
+                      Premium Lyloo
                     </Badge>
                   ) : (
-                    <Badge variant="secondary">
+                    <Badge variant="outline" className="border-vert-eau/50 text-marron-chaud">
                       Compte Gratuit
                     </Badge>
                   )}
@@ -107,9 +117,9 @@ const Profile = () => {
               </CardHeader>
               <CardContent>
                 {!isPremium && (
-                  <Button className="w-full bg-gradient-primary text-white">
+                  <Button className="w-full btn-mental">
                     <Crown className="h-4 w-4 mr-2" />
-                    Passer Premium
+                    Passer Premium Lyloo
                   </Button>
                 )}
               </CardContent>

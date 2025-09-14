@@ -48,17 +48,42 @@ const Recipes = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
+    <div className="min-h-screen bg-gradient-to-br from-vert-pale/10 via-background to-dore-clair/5">
       <Navigation />
       
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-playfair font-bold text-sage-dark mb-4">
-            Recettes bien-être
+          <h1 className="text-4xl font-playfair font-bold text-gradient-physical mb-4">
+            Recettes bien-être Lyloo
           </h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-marron-chaud/80 text-lg mb-6">
             Découvrez nos recettes saines et délicieuses pour accompagner votre parcours bien-être
           </p>
+          
+          {/* Featured Recipe Images */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div className="rounded-xl overflow-hidden shadow-md">
+              <img 
+                src="/src/assets/lyloo-healthy-salad.jpg" 
+                alt="Salade healthy - recette bien-être" 
+                className="w-full h-32 object-cover"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-md">
+              <img 
+                src="/src/assets/lyloo-fresh-vegetables.jpg" 
+                alt="Légumes frais - nutrition saine" 
+                className="w-full h-32 object-cover"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-md">
+              <img 
+                src="/src/assets/lyloo-grapefruit-drink.jpg" 
+                alt="Boisson détox au pamplemousse" 
+                className="w-full h-32 object-cover"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Search and filters */}
