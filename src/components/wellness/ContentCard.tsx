@@ -143,7 +143,7 @@ const ContentCard = ({
 
         <Button 
           onClick={onPlay}
-          className="w-full bg-terracotta-lyloo text-anthracite hover:shadow-xl transition-all duration-300"
+          className="w-full bg-terracotta-lyloo/90 text-anthracite hover:bg-terracotta-lyloo hover:shadow-xl transition-all duration-300"
         >
           <Play className="h-4 w-4 mr-2" />
           Commencer la séance

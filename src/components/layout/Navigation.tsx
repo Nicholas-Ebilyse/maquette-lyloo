@@ -71,7 +71,13 @@ const Navigation = () => {
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
-                <item.icon className="h-5 w-5" />
+                {item.path === "/mental" ? (
+                  <img src="/src/assets/mental-wellness-icon.png" alt="Mental" className="h-5 w-5" />
+                ) : item.path === "/physical" ? (
+                  <img src="/src/assets/physical-wellness-icon.png" alt="Physique" className="h-5 w-5" />
+                ) : (
+                  <item.icon className="h-5 w-5" />
+                )}
                 <span className="font-medium">{item.label}</span>
               </Link>
             ))}
@@ -100,7 +106,13 @@ const Navigation = () => {
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
-                <item.icon className="h-4 w-4" />
+                {item.path === "/mental" ? (
+                  <img src="/src/assets/mental-wellness-icon.png" alt="Mental" className="h-4 w-4" />
+                ) : item.path === "/physical" ? (
+                  <img src="/src/assets/physical-wellness-icon.png" alt="Physique" className="h-4 w-4" />
+                ) : (
+                  <item.icon className="h-4 w-4" />
+                )}
                 <span className="font-medium">{item.label}</span>
               </Link>
             ))}

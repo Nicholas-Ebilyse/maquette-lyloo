@@ -141,7 +141,7 @@ const MentalWellness = () => {
       
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="text-center space-y-4 mb-8 fade-in-up bg-gradient-to-r from-marron-chaud/90 to-vert-eau/80 rounded-3xl p-8 shadow-xl border border-marron-chaud/30">
+        <div className="text-center space-y-4 mb-8 fade-in-up bg-gradient-to-r from-marron-chaud/90 to-terracotta-lyloo/80 rounded-3xl p-8 shadow-xl border border-marron-chaud/30">
           <div className="flex items-center justify-center gap-4 mb-4">
             <img src="/src/assets/mental-wellness-icon.png" alt="Mental wellness" className="h-12 w-12" />
             <h1 className="font-playfair text-3xl md:text-4xl font-bold text-anthracite">
@@ -170,15 +170,19 @@ const MentalWellness = () => {
           <div className="flex flex-wrap gap-2 justify-center">
             {getCategoriesWithCount().map((category) => {
               const IconComponent = getIconComponent(category.icon);
+              const isActiveCat = activeFilter === category.name;
+              const isTous = category.name === "Tous";
               return (
                 <Button
                   key={category.id || category.name}
-                  variant={activeFilter === category.name ? "default" : "outline"}
+                  variant={isActiveCat || isTous ? "default" : "outline"}
                   onClick={() => setActiveFilter(category.name)}
                   className={`rounded-full ${
-                    activeFilter === category.name 
-                      ? "bg-marron-chaud text-anthracite hover:bg-marron-chaud/90" 
-                      : "border-marron-chaud text-marron-chaud hover:bg-marron-chaud/10"
+                    isTous
+                      ? "bg-marron-chaud text-anthracite hover:bg-marron-chaud/90"
+                      : isActiveCat
+                        ? "bg-marron-chaud text-anthracite hover:bg-marron-chaud/90"
+                        : "border-marron-chaud text-marron-chaud hover:bg-marron-chaud/10"
                   }`}
                 >
                   <IconComponent className="h-4 w-4 mr-2" />
