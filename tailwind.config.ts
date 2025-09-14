@@ -67,7 +67,17 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				/* Wellness color palette */
+				/* LYLOO Brand color palette */
+				anthracite: 'hsl(var(--anthracite))',
+				'vert-eau': 'hsl(var(--vert-eau))',
+				'vert-pale': 'hsl(var(--vert-pale))',
+				'beige-lyloo': 'hsl(var(--beige-lyloo))',
+				'terracotta-lyloo': 'hsl(var(--terracotta-lyloo))',
+				'marron-chaud': 'hsl(var(--marron-chaud))',
+				'dore-clair': 'hsl(var(--dore-clair))',
+				'orange-lyloo': 'hsl(var(--orange-lyloo))',
+				
+				/* Legacy wellness colors for compatibility */
 				sage: {
 					DEFAULT: 'hsl(var(--sage))',
 					light: 'hsl(var(--sage-light))',

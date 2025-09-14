@@ -8,49 +8,59 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Core wellness color palette */
-    --background: 45 25% 97%;
-    --foreground: 200 15% 25%;
+    /* LYLOO Brand Color Palette */
+    --background: 60 25% 97%; /* Based on beige #fbf7ef */
+    --foreground: 120 5% 22%; /* Based on anthracite #373a37 */
 
     --card: 0 0% 100%;
-    --card-foreground: 200 15% 25%;
+    --card-foreground: 120 5% 22%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 200 15% 25%;
+    --popover-foreground: 120 5% 22%;
 
-    /* Sage green primary for wellness */
-    --primary: 145 25% 45%;
+    /* LYLOO Sea Green primary (Vert d'eau) */
+    --primary: 157 26% 71%; /* #a3cdbc converted to HSL */
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 145 35% 65%;
+    --primary-glow: 157 36% 81%;
 
-    /* Warm terracotta secondary */
-    --secondary: 15 45% 85%;
-    --secondary-foreground: 15 25% 25%;
+    /* LYLOO Light Green secondary (Vert pâle) */
+    --secondary: 82 50% 76%; /* #cce1b0 converted to HSL */
+    --secondary-foreground: 120 5% 22%;
 
-    /* Soft cream muted */
-    --muted: 45 25% 95%;
-    --muted-foreground: 200 10% 50%;
+    /* LYLOO Beige muted */
+    --muted: 60 38% 96%; /* #fbf7ef converted to HSL */
+    --muted-foreground: 120 3% 40%;
 
-    /* Warm accent */
-    --accent: 25 45% 75%;
-    --accent-foreground: 25 25% 25%;
+    /* LYLOO Terracotta accent */
+    --accent: 16 70% 70%; /* #ec9b7b converted to HSL */
+    --accent-foreground: 120 5% 22%;
 
     --destructive: 0 65% 55%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 45 15% 88%;
-    --input: 45 15% 92%;
-    --ring: 145 25% 45%;
+    --border: 157 20% 85%;
+    --input: 157 15% 90%;
+    --ring: 157 26% 71%;
 
-    /* Wellness-specific design tokens */
-    --sage: 145 25% 45%;
-    --sage-light: 145 35% 65%;
-    --sage-dark: 145 25% 35%;
+    /* LYLOO Brand-specific design tokens */
+    --anthracite: 120 5% 22%; /* #373a37 */
+    --vert-eau: 157 26% 71%; /* #a3cdbc */
+    --vert-pale: 82 50% 76%; /* #cce1b0 */
+    --beige-lyloo: 60 38% 96%; /* #fbf7ef */
+    --terracotta-lyloo: 16 70% 70%; /* #ec9b7b */
+    --marron-chaud: 25 24% 30%; /* #574339 */
+    --dore-clair: 50 86% 73%; /* #f5e380 */
+    --orange-lyloo: 6 79% 57%; /* #e94a38 */
     
-    --terracotta: 15 55% 65%;
-    --terracotta-light: 15 45% 85%;
+    /* Legacy wellness tokens for compatibility */
+    --sage: 157 26% 71%;
+    --sage-light: 157 36% 81%;
+    --sage-dark: 157 26% 61%;
     
-    --cream: 45 25% 95%;
+    --terracotta: 16 70% 70%;
+    --terracotta-light: 16 50% 85%;
+    
+    --cream: 60 38% 96%;
     --night-blue: 220 35% 25%;
 
     /* Difficulty level colors */
@@ -66,15 +76,19 @@ All colors MUST be HSL.
     --difficulty-advanced-bg: 0 73% 95%;
     --difficulty-advanced-foreground: 0 73% 25%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--sage)), hsl(var(--sage-light)));
-    --gradient-warm: linear-gradient(135deg, hsl(var(--terracotta)), hsl(var(--terracotta-light)));
-    --gradient-calm: linear-gradient(180deg, hsl(var(--cream)), hsl(var(--background)));
+    /* LYLOO Brand Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--vert-pale)));
+    --gradient-mental: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--terracotta-lyloo)));
+    --gradient-physical: linear-gradient(135deg, hsl(var(--vert-pale)), hsl(var(--dore-clair)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--terracotta-lyloo)), hsl(var(--orange-lyloo)));
+    --gradient-calm: linear-gradient(180deg, hsl(var(--beige-lyloo)), hsl(var(--background)));
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(var(--sage) / 0.1);
-    --shadow-warm: 0 8px 30px hsl(var(--terracotta) / 0.15);
+    /* LYLOO Brand Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--vert-eau) / 0.1);
+    --shadow-warm: 0 8px 30px hsl(var(--terracotta-lyloo) / 0.15);
     --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+    --shadow-mental: 0 6px 25px hsl(var(--vert-eau) / 0.2);
+    --shadow-physical: 0 6px 25px hsl(var(--vert-pale) / 0.2);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -159,10 +173,22 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-warm);
   }
 
-  /* Gradient buttons */
+  /* LYLOO Brand gradient buttons */
   .btn-sage {
     background: var(--gradient-primary);
     @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  .btn-mental {
+    background: var(--gradient-mental);
+    @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
+    box-shadow: var(--shadow-mental);
+  }
+
+  .btn-physical {
+    background: var(--gradient-physical);
+    @apply text-anthracite shadow-lg hover:shadow-xl transition-all duration-300;
+    box-shadow: var(--shadow-physical);
   }
 
   .btn-warm {
@@ -184,9 +210,23 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-glow);
   }
 
-  /* Text gradients */
+  /* LYLOO Brand text gradients */
   .text-gradient-sage {
     background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-mental {
+    background: var(--gradient-mental);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-physical {
+    background: var(--gradient-physical);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
