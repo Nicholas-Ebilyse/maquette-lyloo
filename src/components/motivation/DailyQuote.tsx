@@ -83,7 +83,7 @@ const DailyQuote = () => {
   return (
     <div className="relative overflow-hidden">
       {/* Background Gradient with LYLOO brand colors */}
-      <div className="absolute inset-0 bg-gradient-to-br from-vert-eau to-terracotta-lyloo/40 rounded-3xl"></div>
+      <div className="absolute inset-0 bg-beige-lyloo/90 rounded-3xl"></div>
       
       <div className="relative p-8 md:p-12 text-center space-y-6 rounded-3xl shadow-xl border border-marron-chaud/30">
         {/* Category Badge with brand colors */}

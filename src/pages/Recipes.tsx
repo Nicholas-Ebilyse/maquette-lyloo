@@ -54,7 +54,7 @@ const Recipes = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-4xl font-playfair font-bold text-gradient-physical mb-4">
-            Recettes bien-être Lyloo
+            Recettes bien-être
           </h1>
           <p className="text-marron-chaud/80 text-lg mb-6">
             Découvrez nos recettes saines et délicieuses pour accompagner votre parcours bien-être

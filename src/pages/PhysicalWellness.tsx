@@ -155,7 +155,7 @@ const PhysicalWellness = () => {
 
           <TabsContent value="meals" className="space-y-6">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {mealPlans.slice(0, 5).map((plan) => (
+              {mealPlans.slice(0, 3).map((plan) => (
                  <Card key={plan.id} className="overflow-hidden hover-scale border border-vert-pale/30">
                    <div className="aspect-video bg-gradient-to-r from-vert-pale to-dore-clair rounded-t-lg relative">
                      <img
@@ -192,7 +192,7 @@ const PhysicalWellness = () => {
 
           <TabsContent value="exercises" className="space-y-6">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-               {exercises.slice(0, 5).map((exercise) => (
+               {exercises.slice(0, 3).map((exercise) => (
                  <Card key={exercise.id} className="overflow-hidden hover-scale border border-orange-lyloo/30">
                    <div className="aspect-video bg-gradient-to-r from-orange-lyloo to-vert-pale rounded-t-lg relative">
                      <img

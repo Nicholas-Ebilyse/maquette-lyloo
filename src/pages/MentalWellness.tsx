@@ -97,15 +97,15 @@ const MentalWellness = () => {
     return matchesSearch && matchesFilter;
   });
 
-  // Limiter à 5 éléments par catégorie
+  // Limiter à 3 éléments par catégorie
   const limitedContents = activeFilter === "Tous" 
     ? categories.reduce((acc, category) => {
         const categoryContents = filteredContents
           .filter(content => content.categories?.name === category.name)
-          .slice(0, 5);
+          .slice(0, 3);
         return [...acc, ...categoryContents];
       }, [] as WellnessContentWithCategory[])
-    : filteredContents.slice(0, 5);
+    : filteredContents.slice(0, 3);
 
   const handlePlay = (contentId: string) => {
     const content = contents.find(c => c.id === contentId);
@@ -141,7 +141,7 @@ const MentalWellness = () => {
       
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="text-center space-y-4 mb-8 fade-in-up bg-gradient-to-r from-marron-chaud/90 to-terracotta-lyloo/80 rounded-3xl p-8 shadow-xl border border-marron-chaud/30">
+        <div className="text-center space-y-4 mb-8 fade-in-up bg-gradient-to-r from-terracotta-lyloo/90 to-terracotta-lyloo/80 rounded-3xl p-8 shadow-xl border border-terracotta-lyloo/30">
           <div className="flex items-center justify-center gap-4 mb-4">
             <img src="/src/assets/mental-wellness-icon.png" alt="Mental wellness" className="h-12 w-12" />
             <h1 className="font-playfair text-3xl md:text-4xl font-bold text-anthracite">
@@ -179,7 +179,7 @@ const MentalWellness = () => {
                   onClick={() => setActiveFilter(category.name)}
                   className={`rounded-full ${
                     isTous
-                      ? "bg-marron-chaud text-anthracite hover:bg-marron-chaud/90"
+                      ? "bg-vert-eau text-anthracite hover:bg-vert-eau/90"
                       : isActiveCat
                         ? "bg-marron-chaud text-anthracite hover:bg-marron-chaud/90"
                         : "border-marron-chaud text-marron-chaud hover:bg-marron-chaud/10"

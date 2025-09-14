@@ -75,9 +75,9 @@ const WellnessDashboard = () => {
       </div>
 
       {/* Today's Goals */}
-      <div className="bg-gradient-to-r from-terracotta-lyloo/20 to-marron-chaud/10 rounded-3xl p-6 shadow-xl border border-terracotta-lyloo/30">
-        <h2 className="flex items-center gap-2 text-xl font-playfair font-bold text-anthracite mb-6">
-          <Target className="h-5 w-5 text-anthracite" />
+      <div className="bg-gradient-to-r from-vert-eau/90 to-vert-eau/80 rounded-3xl p-6 shadow-xl border border-vert-eau/30">
+        <h2 className="flex items-center gap-2 text-xl font-playfair font-bold text-white mb-6">
+          <Target className="h-5 w-5 text-white" />
           Objectifs du jour
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -98,8 +98,8 @@ const WellnessDashboard = () => {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-gradient-to-r from-dore-clair/30 to-orange-lyloo/20 rounded-3xl p-6 shadow-xl border border-orange-lyloo/30">
-        <h2 className="text-xl font-playfair font-bold text-anthracite mb-6">Actions rapides</h2>
+      <div className="bg-gradient-to-r from-vert-eau/90 to-vert-eau/80 rounded-3xl p-6 shadow-xl border border-vert-eau/30">
+        <h2 className="text-xl font-playfair font-bold text-white mb-6">Actions rapides</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Button className="bg-gradient-to-r from-vert-eau to-vert-pale text-anthracite h-20 flex-col gap-2 hover:shadow-xl transition-all duration-300">
             <Brain className="h-6 w-6" />
