@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Core wellness color palette */
+    --background: 45 25% 97%;
+    --foreground: 200 15% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 15% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 15% 25%;
+
+    /* Sage green primary for wellness */
+    --primary: 145 25% 45%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 145 35% 65%;
+
+    /* Warm terracotta secondary */
+    --secondary: 15 45% 85%;
+    --secondary-foreground: 15 25% 25%;
+
+    /* Soft cream muted */
+    --muted: 45 25% 95%;
+    --muted-foreground: 200 10% 50%;
+
+    /* Warm accent */
+    --accent: 25 45% 75%;
+    --accent-foreground: 25 25% 25%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 45 15% 88%;
+    --input: 45 15% 92%;
+    --ring: 145 25% 45%;
+
+    /* Wellness-specific design tokens */
+    --sage: 145 25% 45%;
+    --sage-light: 145 35% 65%;
+    --sage-dark: 145 25% 35%;
+    
+    --terracotta: 15 55% 65%;
+    --terracotta-light: 15 45% 85%;
+    
+    --cream: 45 25% 95%;
+    --night-blue: 220 35% 25%;
+
+    /* Difficulty level colors */
+    --difficulty-beginner: 142 71% 45%;          /* Green for beginner */
+    --difficulty-beginner-bg: 142 71% 95%;
+    --difficulty-beginner-foreground: 142 71% 25%;
+    
+    --difficulty-intermediate: 48 96% 53%;        /* Yellow/Orange for intermediate */
+    --difficulty-intermediate-bg: 48 96% 95%;
+    --difficulty-intermediate-foreground: 48 96% 25%;
+    
+    --difficulty-advanced: 0 73% 41%;             /* Red for advanced */
+    --difficulty-advanced-bg: 0 73% 95%;
+    --difficulty-advanced-foreground: 0 73% 25%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--sage)), hsl(var(--sage-light)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--terracotta)), hsl(var(--terracotta-light)));
+    --gradient-calm: linear-gradient(180deg, hsl(var(--cream)), hsl(var(--background)));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(var(--sage) / 0.1);
+    --shadow-warm: 0 8px 30px hsl(var(--terracotta) / 0.15);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-playfair;
+  }
+}
+
+@layer components {
+  /* Wellness card component */
+  .wellness-card {
+    @apply bg-card rounded-2xl border border-border/50 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .wellness-card:hover {
+    box-shadow: var(--shadow-warm);
+  }
+
+  /* Gradient buttons */
+  .btn-sage {
+    background: var(--gradient-primary);
+    @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  .btn-warm {
+    background: var(--gradient-warm);
+    @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  /* Floating animations */
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .float-delay {
+    animation: float 3s ease-in-out infinite 1.5s;
+  }
+
+  /* Glow effects */
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Text gradients */
+  .text-gradient-sage {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-warm {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Breathing animation for wellness content */
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Staggered fade-in animations */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.fade-in-up-delay-1 {
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.fade-in-up-delay-2 {
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+  opacity: 0;
+}
