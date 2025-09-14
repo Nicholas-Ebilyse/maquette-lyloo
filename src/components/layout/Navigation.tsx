@@ -26,9 +26,9 @@ const Navigation = () => {
 
   const navItems = [
     { path: "/", icon: Home, label: "Accueil" },
+    { path: "/motivation", icon: Sun, label: "Motivation" },
     { path: "/mental", icon: Brain, label: "Bien-être mental" },
     { path: "/physical", icon: Activity, label: "Bien-être physique" },
-    { path: "/motivation", icon: Sun, label: "Motivation" },
     { path: "/recipes", icon: ChefHat, label: "Recettes" },
     { path: "/shop", icon: ShoppingBag, label: "Boutique" },
     { path: "/admin", icon: Menu, label: "Admin" },

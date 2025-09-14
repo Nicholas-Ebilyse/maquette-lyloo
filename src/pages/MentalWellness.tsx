@@ -97,7 +97,7 @@ const MentalWellness = () => {
     return matchesSearch && matchesFilter;
   });
 
-  // Limiter à 5 éléments par catégorie si aucun filtre spécifique n'est appliqué
+  // Limiter à 5 éléments par catégorie
   const limitedContents = activeFilter === "Tous" 
     ? categories.reduce((acc, category) => {
         const categoryContents = filteredContents
@@ -105,7 +105,7 @@ const MentalWellness = () => {
           .slice(0, 5);
         return [...acc, ...categoryContents];
       }, [] as WellnessContentWithCategory[])
-    : filteredContents;
+    : filteredContents.slice(0, 5);
 
   const handlePlay = (contentId: string) => {
     const content = contents.find(c => c.id === contentId);
@@ -141,7 +141,7 @@ const MentalWellness = () => {
       
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="text-center space-y-4 mb-8 fade-in-up bg-gradient-to-r from-vert-eau/90 to-marron-chaud/80 rounded-3xl p-8 shadow-xl border border-vert-eau/30">
+        <div className="text-center space-y-4 mb-8 fade-in-up bg-gradient-to-r from-marron-chaud/90 to-vert-eau/80 rounded-3xl p-8 shadow-xl border border-marron-chaud/30">
           <div className="flex items-center justify-center gap-4 mb-4">
             <img src="/src/assets/mental-wellness-icon.png" alt="Mental wellness" className="h-12 w-12" />
             <h1 className="font-playfair text-3xl md:text-4xl font-bold text-anthracite">
@@ -176,12 +176,14 @@ const MentalWellness = () => {
                   variant={activeFilter === category.name ? "default" : "outline"}
                   onClick={() => setActiveFilter(category.name)}
                   className={`rounded-full ${
-                    activeFilter === category.name ? "btn-mental" : ""
+                    activeFilter === category.name 
+                      ? "bg-marron-chaud text-anthracite hover:bg-marron-chaud/90" 
+                      : "border-marron-chaud text-marron-chaud hover:bg-marron-chaud/10"
                   }`}
                 >
                   <IconComponent className="h-4 w-4 mr-2" />
                   {category.name}
-                  <Badge variant="secondary" className="ml-2 text-xs">
+                  <Badge variant="secondary" className="ml-2 text-xs bg-anthracite/10 text-anthracite">
                     {category.count}
                   </Badge>
                 </Button>

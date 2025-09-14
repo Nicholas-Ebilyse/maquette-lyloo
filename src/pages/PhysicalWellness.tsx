@@ -104,7 +104,7 @@ const PhysicalWellness = () => {
           <div className="flex items-center justify-center gap-4 mb-4">
             <img src="/src/assets/physical-wellness-icon.png" alt="Physical wellness" className="h-12 w-12" />
             <h1 className="text-4xl font-playfair font-bold text-anthracite">
-              Bien-être physique Lyloo
+              Bien-être physique
             </h1>
           </div>
           <p className="text-anthracite text-lg mb-6">
@@ -135,7 +135,7 @@ const PhysicalWellness = () => {
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input
-              placeholder="Rechercher un programme, exercice ou recette..."
+              placeholder="Rechercher un programme, exercice..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
@@ -148,15 +148,14 @@ const PhysicalWellness = () => {
         </div>
 
         <Tabs defaultValue="meals" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="meals">Nutrition</TabsTrigger>
             <TabsTrigger value="exercises">Exercices</TabsTrigger>
-            <TabsTrigger value="recipes">Recettes</TabsTrigger>
           </TabsList>
 
           <TabsContent value="meals" className="space-y-6">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {mealPlans.map((plan) => (
+              {mealPlans.slice(0, 5).map((plan) => (
                  <Card key={plan.id} className="overflow-hidden hover-scale border border-vert-pale/30">
                    <div className="aspect-video bg-gradient-to-r from-vert-pale to-dore-clair rounded-t-lg relative">
                      <img
@@ -193,7 +192,7 @@ const PhysicalWellness = () => {
 
           <TabsContent value="exercises" className="space-y-6">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-               {exercises.map((exercise) => (
+               {exercises.slice(0, 5).map((exercise) => (
                  <Card key={exercise.id} className="overflow-hidden hover-scale border border-orange-lyloo/30">
                    <div className="aspect-video bg-gradient-to-r from-orange-lyloo to-vert-pale rounded-t-lg relative">
                      <img
@@ -232,59 +231,6 @@ const PhysicalWellness = () => {
                 </Card>
               ))}
             </div>
-          </TabsContent>
-
-          <TabsContent value="recipes" className="space-y-6">
-            {loading ? (
-              <div className="text-center py-8">
-                <p className="text-muted-foreground">Chargement des recettes...</p>
-              </div>
-            ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {recipes.map((recipe) => (
-                  <Card key={recipe.id} className="overflow-hidden hover-scale">
-                    <div className="aspect-video bg-gradient-to-r from-dore-clair to-orange-lyloo rounded-t-lg relative">
-                      <img
-                        src={recipe.image_url || 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=200&fit=crop'}
-                        alt={recipe.title}
-                        className="w-full h-full object-cover"
-                      />
-                      <Badge className="absolute top-3 right-3 bg-white/90 text-sage-dark">
-                        {recipe.calories} cal
-                      </Badge>
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <Utensils className="h-5 w-5 text-primary" />
-                        {recipe.title}
-                      </CardTitle>
-                      <CardDescription>{recipe.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex justify-between items-center mb-4">
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                          <span className="flex items-center gap-1">
-                            <Clock className="h-4 w-4" />
-                            {formatTime(recipe.prep_time_minutes)}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {recipe.tags.map((tag) => (
-                          <Badge key={tag} variant="outline" className="text-xs">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                      <Button size="sm" className="w-full">
-                        <Star className="h-4 w-4 mr-2" />
-                        Voir la recette
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            )}
           </TabsContent>
         </Tabs>
       </div>
