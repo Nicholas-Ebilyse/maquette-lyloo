@@ -48,7 +48,7 @@ const ContentCard = ({
   return (
     <div className="wellness-card group overflow-hidden">
       {/* Image Header */}
-      <div className="relative h-48 bg-gradient-to-br from-sage-light to-sage overflow-hidden">
+      <div className="relative h-48 bg-gradient-to-br from-vert-eau to-marron-chaud overflow-hidden">
         {image ? (
           <img 
             src={image} 
@@ -65,17 +65,17 @@ const ContentCard = ({
         
         {/* Premium Badge */}
         {isPremium && (
-          <Badge className="absolute top-3 left-3 bg-terracotta text-white">
+          <Badge className="absolute top-3 left-3 bg-terracotta-lyloo text-white">
             Premium
           </Badge>
         )}
 
         {/* Play Button Overlay */}
-        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className="absolute inset-0 bg-marron-chaud/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <Button
             onClick={onPlay}
             size="lg"
-            className="btn-sage rounded-full h-16 w-16 shadow-2xl"
+            className="btn-mental rounded-full h-16 w-16 shadow-2xl"
           >
             <Play className="h-6 w-6 ml-1" fill="currentColor" />
           </Button>
@@ -100,7 +100,7 @@ const ContentCard = ({
       <div className="p-6 space-y-4">
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <Badge variant="outline" className="text-xs">
+            <Badge variant="outline" className="text-xs border-vert-eau/30 text-vert-eau">
               {category}
             </Badge>
             <Badge className={`text-xs ${getDifficultyBadgeClasses(level)}`}>
@@ -108,7 +108,7 @@ const ContentCard = ({
             </Badge>
           </div>
           
-          <h3 className="font-playfair font-semibold text-lg leading-tight line-clamp-2">
+          <h3 className="font-playfair font-semibold text-lg leading-tight line-clamp-2 text-marron-chaud">
             {title}
           </h3>
         </div>
@@ -143,7 +143,7 @@ const ContentCard = ({
 
         <Button 
           onClick={onPlay}
-          className="w-full btn-sage"
+          className="w-full btn-mental"
         >
           <Play className="h-4 w-4 mr-2" />
           Commencer la séance
