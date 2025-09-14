@@ -136,16 +136,16 @@ const MentalWellness = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-vert-eau/10 via-background to-marron-chaud/5">
+    <div className="min-h-screen bg-gradient-to-br from-vert-eau via-marron-chaud/20 to-terracotta-lyloo/30">
       <Navigation />
       
       <main className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="text-center space-y-4 mb-8 fade-in-up">
-          <h1 className="font-playfair text-3xl md:text-4xl font-bold text-gradient-mental">
+        <div className="text-center space-y-4 mb-8 fade-in-up bg-beige-lyloo/95 rounded-3xl p-8 shadow-xl border border-vert-eau/30">
+          <h1 className="font-playfair text-3xl md:text-4xl font-bold text-anthracite">
             Bien-être Mental
           </h1>
-          <p className="text-marron-chaud/80 text-lg max-w-2xl mx-auto">
+          <p className="text-anthracite text-lg max-w-2xl mx-auto">
             Découvrez nos contenus audio et vidéo pour cultiver votre sérénité intérieure
           </p>
         </div>

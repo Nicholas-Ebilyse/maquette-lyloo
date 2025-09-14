@@ -46,9 +46,9 @@ const ContentCard = ({
   };
 
   return (
-    <div className="wellness-card group overflow-hidden">
+    <div className="card-physical group rounded-2xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
       {/* Image Header */}
-      <div className="relative h-48 bg-gradient-to-br from-vert-eau to-marron-chaud overflow-hidden">
+      <div className="relative h-48 bg-gradient-to-br from-dore-clair to-orange-lyloo overflow-hidden">
         {image ? (
           <img 
             src={image} 
@@ -57,7 +57,7 @@ const ContentCard = ({
           />
         ) : (
           <div className="flex items-center justify-center h-full">
-            <div className="text-white/80 text-6xl">
+            <div className="text-anthracite text-6xl">
               {type === "audio" ? <Volume2 /> : <Video />}
             </div>
           </div>
@@ -75,7 +75,7 @@ const ContentCard = ({
           <Button
             onClick={onPlay}
             size="lg"
-            className="btn-mental rounded-full h-16 w-16 shadow-2xl"
+            className="bg-gradient-to-r from-marron-chaud to-terracotta-lyloo text-white rounded-full h-16 w-16 shadow-2xl"
           >
             <Play className="h-6 w-6 ml-1" fill="currentColor" />
           </Button>
@@ -86,21 +86,21 @@ const ContentCard = ({
           variant="ghost"
           size="sm"
           onClick={handleLike}
-          className="absolute top-3 right-3 bg-white/90 hover:bg-white rounded-full p-2"
+          className="absolute top-3 right-3 bg-beige-lyloo/90 hover:bg-beige-lyloo rounded-full p-2"
         >
           <Heart 
             className={`h-4 w-4 transition-colors ${
-              liked ? "fill-red-500 text-red-500" : "text-gray-600"
+              liked ? "fill-red-500 text-red-500" : "text-anthracite"
             }`}
           />
         </Button>
       </div>
 
       {/* Content */}
-      <div className="p-6 space-y-4">
+      <div className="p-6 space-y-4 bg-gradient-to-br from-beige-lyloo to-vert-pale/30">
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <Badge variant="outline" className="text-xs border-vert-eau/30 text-vert-eau">
+            <Badge variant="outline" className="text-xs border-dore-clair bg-dore-clair/20 text-anthracite">
               {category}
             </Badge>
             <Badge className={`text-xs ${getDifficultyBadgeClasses(level)}`}>
@@ -108,12 +108,12 @@ const ContentCard = ({
             </Badge>
           </div>
           
-          <h3 className="font-playfair font-semibold text-lg leading-tight line-clamp-2 text-marron-chaud">
+          <h3 className="font-playfair font-semibold text-lg leading-tight line-clamp-2 text-anthracite">
             {title}
           </h3>
         </div>
 
-        <div className="flex items-center justify-between text-sm text-muted-foreground">
+        <div className="flex items-center justify-between text-sm text-anthracite/80">
           <div className="flex items-center gap-1">
             <Clock className="h-4 w-4" />
             <span>{duration}</span>
@@ -131,11 +131,11 @@ const ContentCard = ({
               <Star
                 key={i}
                 className={`h-4 w-4 ${
-                  i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                  i < rating ? "fill-yellow-400 text-yellow-400" : "text-anthracite/40"
                 }`}
               />
             ))}
-            <span className="text-sm text-muted-foreground ml-1">
+            <span className="text-sm text-anthracite/70 ml-1">
               ({rating}/5)
             </span>
           </div>
@@ -143,7 +143,7 @@ const ContentCard = ({
 
         <Button 
           onClick={onPlay}
-          className="w-full btn-mental"
+          className="w-full bg-gradient-to-r from-dore-clair to-orange-lyloo text-anthracite hover:shadow-xl transition-all duration-300"
         >
           <Play className="h-4 w-4 mr-2" />
           Commencer la séance

@@ -38,11 +38,11 @@ const Navigation = () => {
   return (
     <>
       {/* Mobile Navigation */}
-      <nav className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-beige-lyloo/95 to-vert-eau/10 backdrop-blur-sm border-b border-vert-eau/20">
+      <nav className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-vert-eau to-vert-pale backdrop-blur-sm border-b border-anthracite/20">
         <div className="flex items-center justify-between p-4">
           <Link to="/" className="flex items-center gap-2">
             <Leaf className="h-6 w-6 text-primary" />
-            <span className="font-playfair font-semibold text-xl text-gradient-sage">
+            <span className="font-playfair font-semibold text-xl text-anthracite">
               Lyloo
             </span>
           </Link>
@@ -80,11 +80,11 @@ const Navigation = () => {
       </nav>
 
       {/* Desktop Navigation */}
-      <nav className="hidden lg:flex fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-beige-lyloo/95 to-vert-eau/10 backdrop-blur-sm border-b border-vert-eau/20">
+      <nav className="hidden lg:flex fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-vert-eau to-vert-pale backdrop-blur-sm border-b border-anthracite/20">
         <div className="container mx-auto flex items-center justify-between py-4">
           <Link to="/" className="flex items-center gap-2">
             <Leaf className="h-8 w-8 text-primary" />
-            <span className="font-playfair font-bold text-2xl text-gradient-sage">
+            <span className="font-playfair font-bold text-2xl text-anthracite">
               Lyloo
             </span>
           </Link>

@@ -164,7 +164,17 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-playfair;
+    @apply bg-background text-anthracite font-playfair;
+  }
+
+  /* Force all text to be anthracite grey */
+  h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, label {
+    @apply text-anthracite;
+  }
+
+  /* Override only when specifically needed (like on colored buttons) */
+  .text-white, .text-primary-foreground, .text-secondary-foreground {
+    color: white !important;
   }
 }
 
@@ -193,8 +203,34 @@ All colors MUST be HSL.
 
   .btn-physical {
     background: var(--gradient-physical-wellness);
-    @apply text-anthracite shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
     box-shadow: var(--shadow-physical);
+  }
+
+  /* Vibrant background cards */
+  .card-mental {
+    background: var(--gradient-mental-wellness);
+    @apply text-white shadow-lg border-0;
+  }
+
+  .card-physical {
+    background: var(--gradient-physical-wellness);
+    @apply text-anthracite shadow-lg border-0;
+  }
+
+  .card-terracotta {
+    background: linear-gradient(135deg, hsl(var(--terracotta-lyloo)), hsl(var(--orange-lyloo)));
+    @apply text-white shadow-lg border-0;
+  }
+
+  .card-green {
+    background: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--vert-pale)));
+    @apply text-anthracite shadow-lg border-0;
+  }
+
+  .card-gold {
+    background: linear-gradient(135deg, hsl(var(--dore-clair)), hsl(var(--orange-lyloo)));
+    @apply text-anthracite shadow-lg border-0;
   }
 
   .btn-mental-accent {

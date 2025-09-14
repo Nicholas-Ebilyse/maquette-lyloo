@@ -95,16 +95,16 @@ const PhysicalWellness = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-vert-pale/10 via-background to-dore-clair/5">
+    <div className="min-h-screen bg-gradient-to-br from-vert-pale via-dore-clair/30 to-orange-lyloo/20">
       <Navigation />
       
       <div className="container mx-auto px-4 py-8">
         {/* Header with Enhanced Brand Colors */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-playfair font-bold text-gradient-physical mb-4">
+        <div className="mb-8 bg-beige-lyloo/95 rounded-3xl p-8 shadow-xl border border-dore-clair/50">
+          <h1 className="text-4xl font-playfair font-bold text-anthracite mb-4">
             Bien-être physique Lyloo
           </h1>
-          <p className="text-marron-chaud/80 text-lg mb-6">
+          <p className="text-anthracite text-lg mb-6">
             Transformez votre corps et votre esprit avec nos programmes personnalisés
           </p>
           

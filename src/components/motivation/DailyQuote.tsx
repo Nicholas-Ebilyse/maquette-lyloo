@@ -83,20 +83,20 @@ const DailyQuote = () => {
   return (
     <div className="relative overflow-hidden">
       {/* Background Gradient with LYLOO brand colors */}
-      <div className="absolute inset-0 bg-gradient-to-br from-vert-eau/10 via-terracotta-lyloo/5 to-marron-chaud/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-vert-eau to-terracotta-lyloo/40 rounded-3xl"></div>
       
-      <div className="wellness-card relative p-8 md:p-12 text-center space-y-6">
+      <div className="relative p-8 md:p-12 text-center space-y-6 rounded-3xl shadow-xl border border-marron-chaud/30">
         {/* Category Badge with brand colors */}
-        <div className="inline-flex items-center px-3 py-1 rounded-full bg-vert-eau/20 text-marron-chaud border border-vert-eau/30 text-sm font-medium">
+        <div className="inline-flex items-center px-3 py-1 rounded-full bg-beige-lyloo/90 text-anthracite border border-dore-clair/50 text-sm font-medium">
           {quote.category}
         </div>
 
         {/* Quote */}
         <blockquote className={`space-y-4 ${loading ? 'opacity-50' : 'fade-in-up'}`}>
-          <p className="font-playfair text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed text-foreground italic">
+          <p className="font-playfair text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed text-anthracite italic">
             "{quote.text}"
           </p>
-          <footer className="text-muted-foreground text-lg">
+          <footer className="text-anthracite/80 text-lg">
             — {quote.author}
           </footer>
         </blockquote>
@@ -104,12 +104,11 @@ const DailyQuote = () => {
         {/* Actions */}
         <div className="flex items-center justify-center gap-4 pt-4">
           <Button
-            variant="outline"
+            className={`rounded-full transition-colors bg-beige-lyloo/90 text-anthracite border border-dore-clair/50 hover:bg-beige-lyloo ${
+              isLiked ? 'bg-red-100 border-red-300 text-red-700' : ''
+            }`}
             size="sm"
             onClick={() => setIsLiked(!isLiked)}
-            className={`rounded-full transition-colors ${
-              isLiked ? 'bg-red-50 border-red-200 text-red-600' : ''
-            }`}
           >
             <Heart 
               className={`h-4 w-4 mr-2 ${isLiked ? 'fill-current' : ''}`} 
@@ -118,21 +117,19 @@ const DailyQuote = () => {
           </Button>
 
           <Button
-            variant="outline"
+            className="rounded-full bg-beige-lyloo/90 text-anthracite border border-dore-clair/50 hover:bg-beige-lyloo"
             size="sm"
             onClick={handleShare}
-            className="rounded-full"
           >
             <Share2 className="h-4 w-4 mr-2" />
             Partager
           </Button>
 
           <Button
-            variant="outline"
+            className="rounded-full bg-beige-lyloo/90 text-anthracite border border-dore-clair/50 hover:bg-beige-lyloo"
             size="sm"
             onClick={getRandomQuote}
             disabled={loading}
-            className="rounded-full"
           >
             <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
             Nouvelle

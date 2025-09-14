@@ -50,79 +50,71 @@ const WellnessDashboard = () => {
   return (
     <div className="space-y-6">
       {/* Welcome Section */}
-      <div className="wellness-card p-6 bg-gradient-to-r from-vert-eau/20 via-terracotta-lyloo/10 to-marron-chaud/5 border border-vert-eau/20">
+      <div className="p-6 bg-gradient-to-r from-vert-eau to-vert-pale rounded-3xl shadow-xl border border-dore-clair/30">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="font-playfair text-2xl md:text-3xl font-bold text-foreground">
+            <h1 className="font-playfair text-2xl md:text-3xl font-bold text-anthracite">
               Bonjour ! ✨
             </h1>
-            <p className="text-muted-foreground mt-1">
+            <p className="text-anthracite/80 mt-1">
               Prêt(e) pour une nouvelle journée de bien-être ?
             </p>
           </div>
           <div className="text-right">
-            <div className="text-sm text-muted-foreground">Semaine en cours</div>
-            <div className="text-2xl font-bold text-primary">{weeklyProgress}%</div>
+            <div className="text-sm text-anthracite/80">Semaine en cours</div>
+            <div className="text-2xl font-bold text-anthracite">{weeklyProgress}%</div>
           </div>
         </div>
         
         <div className="mt-4">
           <Progress value={weeklyProgress} className="h-2" />
-          <p className="text-sm text-muted-foreground mt-2">
+          <p className="text-sm text-anthracite/70 mt-2">
             Vous êtes sur la bonne voie ! Continuez ainsi.
           </p>
         </div>
       </div>
 
       {/* Today's Goals */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Target className="h-5 w-5 text-primary" />
-            Objectifs du jour
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {todayGoals.map((goal, index) => (
-              <div key={index} className="space-y-3 p-4 rounded-lg bg-muted/50">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <goal.icon className="h-4 w-4 text-primary" />
-                    <span className="font-medium text-sm">{goal.label}</span>
-                  </div>
-                  <span className="text-xs text-muted-foreground">{goal.progress}%</span>
+      <div className="bg-gradient-to-r from-terracotta-lyloo/20 to-marron-chaud/10 rounded-3xl p-6 shadow-xl border border-terracotta-lyloo/30">
+        <h2 className="flex items-center gap-2 text-xl font-playfair font-bold text-anthracite mb-6">
+          <Target className="h-5 w-5 text-anthracite" />
+          Objectifs du jour
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {todayGoals.map((goal, index) => (
+            <div key={index} className="space-y-3 p-4 rounded-lg bg-beige-lyloo/80 shadow-md border border-dore-clair/30">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <goal.icon className="h-4 w-4 text-anthracite" />
+                  <span className="font-medium text-sm text-anthracite">{goal.label}</span>
                 </div>
-                <Progress value={goal.progress} className="h-1.5" />
-                <p className="text-xs text-muted-foreground">{goal.target}</p>
+                <span className="text-xs text-anthracite/70">{goal.progress}%</span>
               </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+              <Progress value={goal.progress} className="h-1.5" />
+              <p className="text-xs text-anthracite/70">{goal.target}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Quick Actions */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Actions rapides</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button className="btn-sage h-20 flex-col gap-2">
-              <Brain className="h-6 w-6" />
-              <span>Méditation express</span>
-            </Button>
-            <Button variant="outline" className="h-20 flex-col gap-2">
-              <Activity className="h-6 w-6" />
-              <span>Mouvement du jour</span>
-            </Button>
-            <Button variant="outline" className="h-20 flex-col gap-2">
-              <Sun className="h-6 w-6" />
-              <span>Citation inspirante</span>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="bg-gradient-to-r from-dore-clair/30 to-orange-lyloo/20 rounded-3xl p-6 shadow-xl border border-orange-lyloo/30">
+        <h2 className="text-xl font-playfair font-bold text-anthracite mb-6">Actions rapides</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Button className="bg-gradient-to-r from-vert-eau to-vert-pale text-anthracite h-20 flex-col gap-2 hover:shadow-xl transition-all duration-300">
+            <Brain className="h-6 w-6" />
+            <span>Méditation express</span>
+          </Button>
+          <Button className="bg-gradient-to-r from-terracotta-lyloo to-marron-chaud text-white h-20 flex-col gap-2 hover:shadow-xl transition-all duration-300">
+            <Activity className="h-6 w-6" />
+            <span>Mouvement du jour</span>
+          </Button>
+          <Button className="bg-gradient-to-r from-dore-clair to-orange-lyloo text-anthracite h-20 flex-col gap-2 hover:shadow-xl transition-all duration-300">
+            <Sun className="h-6 w-6" />
+            <span>Citation inspirante</span>
+          </Button>
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Activities */}
