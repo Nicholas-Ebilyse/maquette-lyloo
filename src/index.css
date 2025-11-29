@@ -2,186 +2,119 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Import Atkinson Hyperlegible font for accessibility */
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
 
 @layer base {
   :root {
-    /* LYLOO Brand Color Palette */
-    --background: 60 25% 97%; /* Based on beige #fbf7ef */
-    --foreground: 120 5% 22%; /* Based on anthracite #373a37 */
-
-    --card: 0 0% 100%;
-    --card-foreground: 120 5% 22%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 120 5% 22%;
-
-    /* LYLOO Sea Green primary (Vert d'eau) */
-    --primary: 157 26% 71%; /* #a3cdbc converted to HSL */
-    --primary-foreground: 0 0% 98%;
-    --primary-glow: 157 36% 81%;
-
-    /* LYLOO Light Green secondary (Vert pâle) */
-    --secondary: 82 50% 76%; /* #cce1b0 converted to HSL */
-    --secondary-foreground: 120 5% 22%;
-
-    /* LYLOO Beige muted */
-    --muted: 60 38% 96%; /* #fbf7ef converted to HSL */
-    --muted-foreground: 120 3% 40%;
-
-    /* LYLOO Terracotta accent */
-    --accent: 16 70% 70%; /* #ec9b7b converted to HSL */
-    --accent-foreground: 120 5% 22%;
-
-    --destructive: 0 65% 55%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 157 20% 85%;
-    --input: 157 15% 90%;
-    --ring: 157 26% 71%;
-
-    /* LYLOO Brand-specific design tokens */
-    --anthracite: 120 5% 22%; /* #373a37 */
-    --vert-eau: 157 26% 71%; /* #a3cdbc */
-    --vert-pale: 82 50% 76%; /* #cce1b0 */
-    --beige-lyloo: 60 38% 96%; /* #fbf7ef */
-    --terracotta-lyloo: 16 70% 70%; /* #ec9b7b */
-    --marron-chaud: 25 24% 30%; /* #574339 */
-    --dore-clair: 50 86% 73%; /* #f5e380 */
-    --orange-lyloo: 6 79% 57%; /* #e94a38 */
+    /* CHARTE GRAPHIQUE LYLOO - MODE CLAIR */
     
-    /* Legacy wellness tokens for compatibility */
-    --sage: 157 26% 71%;
-    --sage-light: 157 36% 81%;
-    --sage-dark: 157 26% 61%;
+    /* Couleurs principales exactes */
+    --anthracite: 55 58 55; /* #373a37 - Texte principal, fond nav bas */
+    --beige: 245 242 230; /* #f5f2e6 - Fond principal */
+    --vert-eau: 165 205 188; /* #a5cdbc - Dégradés, bien-être mental */
+    --vert-pale: 204 225 176; /* #cce1b0 - Dégradés, bien-être physique */
+    --terracotta: 236 155 123; /* #ec9b7b - Accent bien-être mental */
+    --dore: 245 227 128; /* #f5e380 - Accent bien-être physique */
+    --orange: 233 74 56; /* #e94a38 - Actions dynamiques physique */
+    --marron-chaud: 97 82 69; /* #615245 - Texte d'emphase */
     
-    --terracotta: 16 70% 70%;
-    --terracotta-light: 16 50% 85%;
+    /* Système de design basé sur la charte LYLOO */
+    --background: var(--beige);
+    --foreground: var(--anthracite);
+    --card: var(--beige);
+    --card-foreground: var(--anthracite);
+    --popover: var(--beige);
+    --popover-foreground: var(--anthracite);
+    --primary: var(--vert-eau);
+    --primary-foreground: var(--anthracite);
+    --secondary: var(--vert-pale);
+    --secondary-foreground: var(--anthracite);
+    --muted: var(--vert-pale);
+    --muted-foreground: var(--marron-chaud);
+    --accent: var(--terracotta);
+    --accent-foreground: var(--anthracite);
+    --destructive: var(--orange);
+    --destructive-foreground: var(--beige);
+    --border: var(--vert-eau);
+    --input: var(--beige);
+    --ring: var(--vert-eau);
+    --radius: 1rem; /* Coins arrondis par défaut */
     
-    --cream: 60 38% 96%;
-    --night-blue: 220 35% 25%;
-
-    /* Difficulty level colors */
-    --difficulty-beginner: 142 71% 45%;          /* Green for beginner */
-    --difficulty-beginner-bg: 142 71% 95%;
-    --difficulty-beginner-foreground: 142 71% 25%;
+    /* Gradients LYLOO */
+    --gradient-header: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--vert-pale)));
+    --gradient-mental: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--terracotta)));
+    --gradient-physical: linear-gradient(135deg, hsl(var(--vert-pale)), hsl(var(--dore)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--terracotta)), hsl(var(--orange)));
     
-    --difficulty-intermediate: 48 96% 53%;        /* Yellow/Orange for intermediate */
-    --difficulty-intermediate-bg: 48 96% 95%;
-    --difficulty-intermediate-foreground: 48 96% 25%;
-    
-    --difficulty-advanced: 0 73% 41%;             /* Red for advanced */
-    --difficulty-advanced-bg: 0 73% 95%;
-    --difficulty-advanced-foreground: 0 73% 25%;
-
-    /* LYLOO Brand Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--vert-pale)));
-    --gradient-mental: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--marron-chaud)), hsl(var(--terracotta-lyloo)));
-    --gradient-physical: linear-gradient(135deg, hsl(var(--vert-pale)), hsl(var(--dore-clair)), hsl(var(--orange-lyloo)));
-    --gradient-warm: linear-gradient(135deg, hsl(var(--terracotta-lyloo)), hsl(var(--orange-lyloo)));
-    --gradient-calm: linear-gradient(180deg, hsl(var(--beige-lyloo)), hsl(var(--background)));
-    
-    /* Specialized wellness gradients */
-    --gradient-mental-wellness: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--marron-chaud)));
-    --gradient-mental-accent: linear-gradient(90deg, hsl(var(--terracotta-lyloo)), hsl(var(--vert-eau)));
-    --gradient-physical-wellness: linear-gradient(135deg, hsl(var(--vert-pale)), hsl(var(--dore-clair)));
-    --gradient-physical-accent: linear-gradient(90deg, hsl(var(--orange-lyloo)), hsl(var(--vert-pale)));
-
-    /* LYLOO Brand Shadows */
+    /* Shadows */
     --shadow-soft: 0 4px 20px hsl(var(--vert-eau) / 0.1);
-    --shadow-warm: 0 8px 30px hsl(var(--terracotta-lyloo) / 0.15);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
-    --shadow-mental: 0 6px 25px hsl(var(--vert-eau) / 0.2);
-    --shadow-physical: 0 6px 25px hsl(var(--vert-pale) / 0.2);
-
-    /* Animations */
+    --shadow-warm: 0 8px 30px hsl(var(--terracotta) / 0.15);
+    
+    /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-gentle: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* CHARTE GRAPHIQUE LYLOO - MODE SOMBRE */
+    
+    /* Couleurs atténuées pour mode sombre */
+    --anthracite: 55 58 55; /* Reste inchangé - devient fond */
+    --beige: 245 242 230; /* Reste inchangé - devient texte */
+    --vert-eau: 147 183 168; /* #93b7a8 - Atténué */
+    --vert-pale: 183 202 159; /* #b7ca9f - Atténué */
+    --terracotta: 205 154 127; /* #cd9a7f - Atténué */
+    --dore: 226 210 119; /* #e2d277 - Atténué */
+    --orange: 204 103 77; /* #cc674d - Atténué */
+    --marron-chaud: 97 82 69; /* Reste inchangé */
+    
+    --background: var(--anthracite);
+    --foreground: var(--beige);
+    --card: var(--anthracite);
+    --card-foreground: var(--beige);
+    --popover: var(--anthracite);
+    --popover-foreground: var(--beige);
+    --primary: var(--vert-eau);
+    --primary-foreground: var(--anthracite);
+    --secondary: var(--vert-pale);
+    --secondary-foreground: var(--anthracite);
+    --muted: var(--vert-pale);
+    --muted-foreground: var(--beige);
+    --accent: var(--terracotta);
+    --accent-foreground: var(--anthracite);
+    --destructive: var(--orange);
+    --destructive-foreground: var(--beige);
+    --border: var(--vert-eau);
+    --input: var(--anthracite);
+    --ring: var(--vert-eau);
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    -webkit-tap-highlight-color: transparent; /* Supprime le flash tactile sur mobile */
   }
 
   body {
-    @apply bg-background text-anthracite font-playfair;
+    @apply bg-background text-foreground;
+    font-family: 'Atkinson Hyperlegible', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none; /* Évite le bounce sur mobile */
+    touch-action: pan-y; /* Optimise le scroll mobile */
   }
-
-  /* Force all text to be anthracite grey */
-  h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, label {
-    @apply text-anthracite;
-  }
-
-  /* Override only when specifically needed (like on colored buttons) */
-  .text-white, .text-primary-foreground, .text-secondary-foreground {
-    color: white !important;
+  
+  /* Images dans les photos en mode sombre ont un contour beige */
+  .dark img:not(.logo):not(.icon) {
+    @apply border-2 border-[hsl(var(--beige))];
   }
 }
 
 @layer components {
   /* Wellness card component */
   .wellness-card {
-    @apply bg-card rounded-2xl border border-border/50 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+    @apply bg-card rounded-[var(--radius)] border border-border/50 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
     box-shadow: var(--shadow-soft);
   }
 
@@ -189,117 +122,49 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-warm);
   }
 
-  /* LYLOO Brand gradient buttons */
-  .btn-sage {
-    background: var(--gradient-primary);
-    @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
+  /* Boutons avec extrémités arrondies (pilules) */
+  .btn-pill {
+    @apply rounded-full px-6 py-3 transition-all duration-300;
   }
 
-  .btn-mental {
-    background: var(--gradient-mental-wellness);
-    @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
-    box-shadow: var(--shadow-mental);
+  /* Bandeau haut avec vagues */
+  .header-wave {
+    background: var(--gradient-header);
+    @apply relative overflow-hidden;
   }
 
-  .btn-physical {
-    background: var(--gradient-physical-wellness);
-    @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
-    box-shadow: var(--shadow-physical);
+  .header-wave::after {
+    content: '';
+    @apply absolute bottom-0 left-0 right-0;
+    height: 30px;
+    background: hsl(var(--background));
+    clip-path: ellipse(100% 100% at 50% 100%);
   }
 
-  /* Vibrant background cards */
+  /* Cartes colorées */
   .card-mental {
-    background: var(--gradient-mental-wellness);
-    @apply text-white shadow-lg border-0;
+    background: var(--gradient-mental);
+    @apply text-white rounded-[var(--radius)] shadow-lg border-0;
   }
 
   .card-physical {
-    background: var(--gradient-physical-wellness);
-    @apply text-anthracite shadow-lg border-0;
+    background: var(--gradient-physical);
+    @apply text-[hsl(var(--anthracite))] rounded-[var(--radius)] shadow-lg border-0;
   }
 
-  .card-terracotta {
-    background: linear-gradient(135deg, hsl(var(--terracotta-lyloo)), hsl(var(--orange-lyloo)));
-    @apply text-white shadow-lg border-0;
+  /* Zones tactiles confortables (min 44x44px) */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
   }
-
-  .card-green {
-    background: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--vert-pale)));
-    @apply text-anthracite shadow-lg border-0;
+  
+  /* Pills de catégories */
+  .category-pill {
+    @apply rounded-full px-4 py-2 text-sm font-bold transition-all duration-300 touch-target;
   }
-
-  .card-gold {
-    background: linear-gradient(135deg, hsl(var(--dore-clair)), hsl(var(--orange-lyloo)));
-    @apply text-anthracite shadow-lg border-0;
+  
+  .category-pill.active {
+    @apply shadow-lg scale-105;
   }
-
-  .btn-mental-accent {
-    background: var(--gradient-mental-accent);
-    @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
-  }
-
-  .btn-physical-accent {
-    background: var(--gradient-physical-accent);
-    @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
-  }
-
-  .btn-warm {
-    background: var(--gradient-warm);
-    @apply text-white shadow-lg hover:shadow-xl transition-all duration-300;
-  }
-
-  /* Floating animations */
-  .float {
-    animation: float 3s ease-in-out infinite;
-  }
-
-  .float-delay {
-    animation: float 3s ease-in-out infinite 1.5s;
-  }
-
-  /* Glow effects */
-  .glow {
-    box-shadow: var(--shadow-glow);
-  }
-
-  /* LYLOO Brand text gradients */
-  .text-gradient-sage {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gradient-mental {
-    background: var(--gradient-mental-wellness);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gradient-physical {
-    background: var(--gradient-physical-wellness);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gradient-warm {
-    background: var(--gradient-warm);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
 }
 
 @keyframes fadeInUp {
@@ -313,12 +178,12 @@ All colors MUST be HSL.
   }
 }
 
-/* Breathing animation for wellness content */
-.breathe {
-  animation: breathe 4s ease-in-out infinite;
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
-/* Staggered fade-in animations */
+/* Animations douces */
 .fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
 }
@@ -331,4 +196,8 @@ All colors MUST be HSL.
 .fade-in-up-delay-2 {
   animation: fadeInUp 0.6s ease-out 0.4s forwards;
   opacity: 0;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
 }
