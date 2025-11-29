@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import MobileHeader from "@/components/mobile/MobileHeader";
+import BottomTabBar from "@/components/mobile/BottomTabBar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,7 +17,6 @@ import {
   Users,
   Star
 } from "lucide-react";
-import Navigation from "@/components/layout/Navigation";
 import ExerciseCalendar from "@/components/calendar/ExerciseCalendar";
 import { getDifficultyBadgeClasses } from "@/lib/difficulty-colors";
 import { supabase } from "@/integrations/supabase/client";

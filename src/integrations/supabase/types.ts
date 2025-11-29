@@ -296,10 +296,7 @@ export type Database = {
       }
     }
     Functions: {
-      is_profile_owner: {
-        Args: { profile_user_id: string }
-        Returns: boolean
-      }
+      is_profile_owner: { Args: { profile_user_id: string }; Returns: boolean }
     }
     Enums: {
       content_type: "audio" | "video"

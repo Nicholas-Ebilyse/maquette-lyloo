@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import Navigation from "@/components/layout/Navigation";
+import MobileHeader from "@/components/mobile/MobileHeader";
+import BottomTabBar from "@/components/mobile/BottomTabBar";
 import ContentCard from "@/components/wellness/ContentCard";
 import MediaPlayer from "@/components/media/MediaPlayer";
 import { Button } from "@/components/ui/button";
@@ -124,80 +125,73 @@ const MentalWellness = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background">
-        <Navigation />
-        <main className="container mx-auto px-4 py-8">
+      <div className="min-h-screen bg-background pb-20">
+        <MobileHeader title="Bien-être mental" />
+        <main className="px-4 py-8">
           <div className="text-center">
-            <p className="text-muted-foreground">Chargement...</p>
+            <p className="text-[hsl(var(--anthracite))]/70">Chargement...</p>
           </div>
         </main>
+        <BottomTabBar />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-vert-eau via-marron-chaud/20 to-terracotta-lyloo/30">
-      <Navigation />
+    <div className="min-h-screen bg-background pb-20">
+      <MobileHeader 
+        title="Bien-être mental" 
+        subtitle="Découvre nos contenus pour cultiver ta sérénité"
+      />
       
-      <main className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="text-center space-y-4 mb-8 fade-in-up bg-gradient-to-r from-terracotta-lyloo/90 to-terracotta-lyloo/80 rounded-3xl p-8 shadow-xl border border-terracotta-lyloo/30">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <img src="/src/assets/mental-wellness-icon.png" alt="Mental wellness" className="h-12 w-12" />
-            <h1 className="font-playfair text-3xl md:text-4xl font-bold text-anthracite">
-              Bien-être Mental
-            </h1>
-          </div>
-          <p className="text-anthracite text-lg max-w-2xl mx-auto">
-            Découvrez nos contenus audio et vidéo pour cultiver votre sérénité intérieure
-          </p>
-        </div>
+      <main className="px-4 py-6 space-y-6">
 
         {/* Search and Filters */}
-        <div className="space-y-6 mb-8 fade-in-up-delay-1">
+        <div className="space-y-4">
           {/* Search Bar */}
-          <div className="relative max-w-md mx-auto">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[hsl(var(--anthracite))]/50" />
             <Input
               placeholder="Rechercher un contenu..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 rounded-full"
+              className="pl-11 rounded-full h-12 bg-[hsl(var(--beige))] border-2 border-[hsl(var(--vert-eau))]/20"
             />
           </div>
 
           {/* Categories */}
-          <div className="flex flex-wrap gap-2 justify-center">
+          <div className="flex flex-wrap gap-2">
             {getCategoriesWithCount().map((category) => {
               const IconComponent = getIconComponent(category.icon);
               const isActiveCat = activeFilter === category.name;
               const isTous = category.name === "Tous";
               return (
-                <Button
+                <button
                   key={category.id || category.name}
-                  variant={isActiveCat || isTous ? "default" : "outline"}
                   onClick={() => setActiveFilter(category.name)}
-                  className={`rounded-full ${
+                  className={`category-pill ${isActiveCat ? 'active' : ''} ${
                     isTous
-                      ? "bg-vert-eau text-anthracite hover:bg-vert-eau/90"
+                      ? isActiveCat 
+                        ? "bg-[hsl(var(--marron-chaud))] text-white"
+                        : "bg-[hsl(var(--marron-chaud))]/10 text-[hsl(var(--marron-chaud))] border-2 border-[hsl(var(--marron-chaud))]/30"
                       : isActiveCat
-                        ? "bg-marron-chaud text-anthracite hover:bg-marron-chaud/90"
-                        : "border-marron-chaud text-marron-chaud hover:bg-marron-chaud/10"
+                        ? "bg-[hsl(var(--marron-chaud))] text-white"
+                        : "bg-[hsl(var(--beige))] text-[hsl(var(--anthracite))] border-2 border-[hsl(var(--marron-chaud))]/20"
                   }`}
                 >
-                  <IconComponent className="h-4 w-4 mr-2" />
+                  <IconComponent className="h-4 w-4 mr-2 inline" />
                   {category.name}
-                  <Badge variant="secondary" className="ml-2 text-xs bg-anthracite/10 text-anthracite">
+                  <span className="ml-2 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold">
                     {category.count}
-                  </Badge>
-                </Button>
+                  </span>
+                </button>
               );
             })}
           </div>
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in-up-delay-2">
+        <div className="grid grid-cols-1 gap-4">
           {limitedContents.map((content) => (
             <ContentCard
               key={content.id}
@@ -241,6 +235,8 @@ const MentalWellness = () => {
           thumbnailSrc={getImageUrl(selectedContent.thumbnail_url, selectedContent.categories?.name, selectedContent.content_type)}
         />
       )}
+      
+      <BottomTabBar />
     </div>
   );
 };
