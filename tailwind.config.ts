@@ -19,8 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				playfair: ['Playfair Display', 'serif'],
-				inter: ['Inter', 'sans-serif'],
+				sans: ['Atkinson Hyperlegible', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -30,8 +29,7 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))',
-					glow: 'hsl(var(--primary-glow))'
+					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -57,56 +55,15 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				},
-				/* LYLOO Brand color palette */
+				/* LYLOO Brand color palette - Toutes les couleurs utilisent les variables HSL */
 				anthracite: 'hsl(var(--anthracite))',
+				beige: 'hsl(var(--beige))',
 				'vert-eau': 'hsl(var(--vert-eau))',
 				'vert-pale': 'hsl(var(--vert-pale))',
-				'beige-lyloo': 'hsl(var(--beige-lyloo))',
-				'terracotta-lyloo': 'hsl(var(--terracotta-lyloo))',
+				terracotta: 'hsl(var(--terracotta))',
+				dore: 'hsl(var(--dore))',
+				orange: 'hsl(var(--orange))',
 				'marron-chaud': 'hsl(var(--marron-chaud))',
-				'dore-clair': 'hsl(var(--dore-clair))',
-				'orange-lyloo': 'hsl(var(--orange-lyloo))',
-				
-				/* Legacy wellness colors for compatibility */
-				sage: {
-					DEFAULT: 'hsl(var(--sage))',
-					light: 'hsl(var(--sage-light))',
-					dark: 'hsl(var(--sage-dark))'
-				},
-				terracotta: {
-					DEFAULT: 'hsl(var(--terracotta))',
-					light: 'hsl(var(--terracotta-light))'
-				},
-				cream: 'hsl(var(--cream))',
-				'night-blue': 'hsl(var(--night-blue))',
-				/* Difficulty level colors */
-				difficulty: {
-					beginner: {
-						DEFAULT: 'hsl(var(--difficulty-beginner))',
-						bg: 'hsl(var(--difficulty-beginner-bg))',
-						foreground: 'hsl(var(--difficulty-beginner-foreground))'
-					},
-					intermediate: {
-						DEFAULT: 'hsl(var(--difficulty-intermediate))',
-						bg: 'hsl(var(--difficulty-intermediate-bg))',
-						foreground: 'hsl(var(--difficulty-intermediate-foreground))'
-					},
-					advanced: {
-						DEFAULT: 'hsl(var(--difficulty-advanced))',
-						bg: 'hsl(var(--difficulty-advanced-bg))',
-						foreground: 'hsl(var(--difficulty-advanced-foreground))'
-					}
-				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
