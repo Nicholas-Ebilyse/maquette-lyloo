@@ -6,7 +6,10 @@ import { Users, Heart, Target } from 'lucide-react';
 const Communaute = () => {
   return (
     <div className="min-h-screen bg-background pb-20">
-      <MobileHeader title="Communauté" subtitle="Ensemble, prenons soin de nous" />
+      <MobileHeader 
+        title="Communauté" 
+        subtitle="Ensemble, prenons soin de nous"
+      />
 
       <main className="px-4 py-6 space-y-6">
         {/* Messages de la communauté */}
