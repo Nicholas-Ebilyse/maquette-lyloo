@@ -7,93 +7,92 @@
 
 @layer base {
   :root {
-    /* CHARTE GRAPHIQUE LYLOO - MODE CLAIR */
+    /* CHARTE GRAPHIQUE LYLOO - MODE CLAIR - Toutes les couleurs en HSL */
     
-    /* Couleurs principales exactes */
-    --anthracite: 55 58 55; /* #373a37 - Texte principal, fond nav bas */
-    --beige: 245 242 230; /* #f5f2e6 - Fond principal */
-    --vert-eau: 165 205 188; /* #a5cdbc - Dégradés, bien-être mental */
-    --vert-pale: 204 225 176; /* #cce1b0 - Dégradés, bien-être physique */
-    --terracotta: 236 155 123; /* #ec9b7b - Accent bien-être mental */
-    --dore: 245 227 128; /* #f5e380 - Accent bien-être physique */
-    --orange: 233 74 56; /* #e94a38 - Actions dynamiques physique */
-    --marron-chaud: 97 82 69; /* #615245 - Texte d'emphase */
+    /* Couleurs principales exactes converties en HSL */
+    --anthracite: 120 3% 22%; /* #373a37 */
+    --beige: 47 45% 93%; /* #f5f2e6 */
+    --vert-eau: 158 35% 72%; /* #a5cdbc */
+    --vert-pale: 82 55% 78%; /* #cce1b0 */
+    --terracotta: 16 76% 70%; /* #ec9b7b */
+    --dore: 50 87% 73%; /* #f5e380 */
+    --orange: 6 80% 57%; /* #e94a38 */
+    --marron-chaud: 25 17% 33%; /* #615245 */
     
     /* Système de design basé sur la charte LYLOO */
-    --background: var(--beige);
-    --foreground: var(--anthracite);
-    --card: var(--beige);
-    --card-foreground: var(--anthracite);
-    --popover: var(--beige);
-    --popover-foreground: var(--anthracite);
-    --primary: var(--vert-eau);
-    --primary-foreground: var(--anthracite);
-    --secondary: var(--vert-pale);
-    --secondary-foreground: var(--anthracite);
-    --muted: var(--vert-pale);
-    --muted-foreground: var(--marron-chaud);
-    --accent: var(--terracotta);
-    --accent-foreground: var(--anthracite);
-    --destructive: var(--orange);
-    --destructive-foreground: var(--beige);
-    --border: var(--vert-eau);
-    --input: var(--beige);
-    --ring: var(--vert-eau);
-    --radius: 1rem; /* Coins arrondis par défaut */
+    --background: 47 45% 93%; /* beige */
+    --foreground: 120 3% 22%; /* anthracite */
+    --card: 47 45% 93%; /* beige */
+    --card-foreground: 120 3% 22%; /* anthracite */
+    --popover: 47 45% 93%; /* beige */
+    --popover-foreground: 120 3% 22%; /* anthracite */
+    --primary: 158 35% 72%; /* vert-eau */
+    --primary-foreground: 120 3% 22%; /* anthracite */
+    --secondary: 82 55% 78%; /* vert-pale */
+    --secondary-foreground: 120 3% 22%; /* anthracite */
+    --muted: 82 55% 78%; /* vert-pale */
+    --muted-foreground: 25 17% 33%; /* marron-chaud */
+    --accent: 16 76% 70%; /* terracotta */
+    --accent-foreground: 120 3% 22%; /* anthracite */
+    --destructive: 6 80% 57%; /* orange */
+    --destructive-foreground: 47 45% 93%; /* beige */
+    --border: 158 35% 82%; /* vert-eau plus clair */
+    --input: 47 45% 93%; /* beige */
+    --ring: 158 35% 72%; /* vert-eau */
+    --radius: 1rem;
     
     /* Gradients LYLOO */
-    --gradient-header: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--vert-pale)));
-    --gradient-mental: linear-gradient(135deg, hsl(var(--vert-eau)), hsl(var(--terracotta)));
-    --gradient-physical: linear-gradient(135deg, hsl(var(--vert-pale)), hsl(var(--dore)));
-    --gradient-warm: linear-gradient(135deg, hsl(var(--terracotta)), hsl(var(--orange)));
+    --gradient-header: linear-gradient(135deg, hsl(158 35% 72%), hsl(82 55% 78%));
+    --gradient-mental: linear-gradient(135deg, hsl(158 35% 72%), hsl(16 76% 70%));
+    --gradient-physical: linear-gradient(135deg, hsl(82 55% 78%), hsl(50 87% 73%));
+    --gradient-warm: linear-gradient(135deg, hsl(16 76% 70%), hsl(6 80% 57%));
     
     /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(var(--vert-eau) / 0.1);
-    --shadow-warm: 0 8px 30px hsl(var(--terracotta) / 0.15);
+    --shadow-soft: 0 4px 20px hsl(158 35% 72% / 0.1);
+    --shadow-warm: 0 8px 30px hsl(16 76% 70% / 0.15);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    /* CHARTE GRAPHIQUE LYLOO - MODE SOMBRE */
+    /* CHARTE GRAPHIQUE LYLOO - MODE SOMBRE - Couleurs atténuées en HSL */
     
-    /* Couleurs atténuées pour mode sombre */
-    --anthracite: 55 58 55; /* Reste inchangé - devient fond */
-    --beige: 245 242 230; /* Reste inchangé - devient texte */
-    --vert-eau: 147 183 168; /* #93b7a8 - Atténué */
-    --vert-pale: 183 202 159; /* #b7ca9f - Atténué */
-    --terracotta: 205 154 127; /* #cd9a7f - Atténué */
-    --dore: 226 210 119; /* #e2d277 - Atténué */
-    --orange: 204 103 77; /* #cc674d - Atténué */
-    --marron-chaud: 97 82 69; /* Reste inchangé */
+    --anthracite: 120 3% 22%; /* Reste fond en sombre */
+    --beige: 47 45% 93%; /* Reste texte en sombre */
+    --vert-eau: 158 25% 65%; /* #93b7a8 atténué */
+    --vert-pale: 82 40% 70%; /* #b7ca9f atténué */
+    --terracotta: 16 50% 65%; /* #cd9a7f atténué */
+    --dore: 50 75% 70%; /* #e2d277 atténué */
+    --orange: 6 55% 58%; /* #cc674d atténué */
+    --marron-chaud: 25 17% 33%; /* Reste inchangé */
     
-    --background: var(--anthracite);
-    --foreground: var(--beige);
-    --card: var(--anthracite);
-    --card-foreground: var(--beige);
-    --popover: var(--anthracite);
-    --popover-foreground: var(--beige);
-    --primary: var(--vert-eau);
-    --primary-foreground: var(--anthracite);
-    --secondary: var(--vert-pale);
-    --secondary-foreground: var(--anthracite);
-    --muted: var(--vert-pale);
-    --muted-foreground: var(--beige);
-    --accent: var(--terracotta);
-    --accent-foreground: var(--anthracite);
-    --destructive: var(--orange);
-    --destructive-foreground: var(--beige);
-    --border: var(--vert-eau);
-    --input: var(--anthracite);
-    --ring: var(--vert-eau);
+    --background: 120 3% 22%; /* anthracite */
+    --foreground: 47 45% 93%; /* beige */
+    --card: 120 3% 22%; /* anthracite */
+    --card-foreground: 47 45% 93%; /* beige */
+    --popover: 120 3% 22%; /* anthracite */
+    --popover-foreground: 47 45% 93%; /* beige */
+    --primary: 158 25% 65%; /* vert-eau atténué */
+    --primary-foreground: 120 3% 22%; /* anthracite */
+    --secondary: 82 40% 70%; /* vert-pale atténué */
+    --secondary-foreground: 120 3% 22%; /* anthracite */
+    --muted: 82 40% 70%; /* vert-pale atténué */
+    --muted-foreground: 47 45% 93%; /* beige */
+    --accent: 16 50% 65%; /* terracotta atténué */
+    --accent-foreground: 47 45% 93%; /* beige */
+    --destructive: 6 55% 58%; /* orange atténué */
+    --destructive-foreground: 47 45% 93%; /* beige */
+    --border: 158 25% 35%; /* vert-eau très sombre */
+    --input: 120 3% 25%; /* anthracite légèrement plus clair */
+    --ring: 158 25% 65%; /* vert-eau atténué */
   }
 }
 
 @layer base {
   * {
     @apply border-border;
-    -webkit-tap-highlight-color: transparent; /* Supprime le flash tactile sur mobile */
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
@@ -101,13 +100,14 @@
     font-family: 'Atkinson Hyperlegible', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overscroll-behavior: none; /* Évite le bounce sur mobile */
-    touch-action: pan-y; /* Optimise le scroll mobile */
+    overscroll-behavior: none;
+    touch-action: pan-y;
   }
   
-  /* Images dans les photos en mode sombre ont un contour beige */
+  /* Images en mode sombre ont un contour beige */
   .dark img:not(.logo):not(.icon) {
-    @apply border-2 border-[hsl(var(--beige))];
+    border: 2px solid hsl(47 45% 93%);
+    border-radius: 0.5rem;
   }
 }
 
@@ -124,7 +124,7 @@
 
   /* Boutons avec extrémités arrondies (pilules) */
   .btn-pill {
-    @apply rounded-full px-6 py-3 transition-all duration-300;
+    @apply rounded-full px-6 py-3 transition-all duration-300 font-bold;
   }
 
   /* Bandeau haut avec vagues */
@@ -149,7 +149,7 @@
 
   .card-physical {
     background: var(--gradient-physical);
-    @apply text-[hsl(var(--anthracite))] rounded-[var(--radius)] shadow-lg border-0;
+    @apply rounded-[var(--radius)] shadow-lg border-0;
   }
 
   /* Zones tactiles confortables (min 44x44px) */

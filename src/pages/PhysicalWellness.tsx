@@ -96,66 +96,44 @@ const PhysicalWellness = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-dore-clair via-vert-pale/30 to-orange-lyloo/20">
-      <Navigation />
+    <div className="min-h-screen bg-background pb-20">
+      <MobileHeader 
+        title="Bien-être physique" 
+        subtitle="Transforme ton corps et ton esprit"
+      />
       
-      <div className="container mx-auto px-4 py-8">
-        {/* Header with Enhanced Brand Colors */}
-        <div className="mb-8 bg-gradient-to-r from-dore-clair/90 to-orange-lyloo/80 rounded-3xl p-8 shadow-xl border border-dore-clair/50">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <img src="/src/assets/physical-wellness-icon.png" alt="Physical wellness" className="h-12 w-12" />
-            <h1 className="text-4xl font-playfair font-bold text-anthracite">
-              Bien-être physique
-            </h1>
-          </div>
-          <p className="text-anthracite text-lg mb-6">
-            Transformez votre corps et votre esprit avec nos programmes personnalisés
-          </p>
-          
-          {/* Hero Images Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img 
-                src="/src/assets/lyloo-yoga-nature.jpg" 
-                alt="Yoga en pleine nature - bien-être physique" 
-                className="w-full h-48 object-cover"
-              />
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img 
-                src="/src/assets/lyloo-yoga-studio.jpg" 
-                alt="Séance de yoga en studio - exercice physique" 
-                className="w-full h-48 object-cover"
-              />
-            </div>
-          </div>
-        </div>
-
+      <div className="px-4 py-6 space-y-6">
         {/* Search and filters */}
-        <div className="flex gap-4 mb-8">
+        <div className="flex gap-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[hsl(var(--anthracite))]/50" />
             <Input
               placeholder="Rechercher un programme, exercice..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
+              className="pl-11 rounded-full h-12 bg-[hsl(var(--beige))] border-2 border-[hsl(var(--vert-pale))]/20"
             />
           </div>
-          <Button variant="outline" size="sm">
-            <Filter className="h-4 w-4 mr-2" />
-            Filtres
-          </Button>
         </div>
 
-        <Tabs defaultValue="meals" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="meals">Nutrition</TabsTrigger>
-            <TabsTrigger value="exercises">Exercices</TabsTrigger>
+        <Tabs defaultValue="meals" className="space-y-4">
+          <TabsList className="grid w-full grid-cols-2 h-12 bg-[hsl(var(--beige))] border-2 border-[hsl(var(--vert-pale))]/20 rounded-full p-1">
+            <TabsTrigger 
+              value="meals" 
+              className="rounded-full data-[state=active]:bg-[hsl(var(--vert-pale))] data-[state=active]:text-[hsl(var(--anthracite))] font-bold"
+            >
+              Nutrition
+            </TabsTrigger>
+            <TabsTrigger 
+              value="exercises"
+              className="rounded-full data-[state=active]:bg-[hsl(var(--dore))] data-[state=active]:text-[hsl(var(--anthracite))] font-bold"
+            >
+              Exercices
+            </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="meals" className="space-y-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <TabsContent value="meals" className="space-y-4">
+            <div className="grid grid-cols-1 gap-4">
               {mealPlans.slice(0, 3).map((plan) => (
                  <Card key={plan.id} className="overflow-hidden hover-scale border border-vert-pale/30">
                    <div className="aspect-video bg-gradient-to-r from-vert-pale to-dore-clair rounded-t-lg relative">
@@ -191,8 +169,8 @@ const PhysicalWellness = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="exercises" className="space-y-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <TabsContent value="exercises" className="space-y-4">
+            <div className="grid grid-cols-1 gap-4">
                {exercises.slice(0, 3).map((exercise) => (
                  <Card key={exercise.id} className="overflow-hidden hover-scale border border-orange-lyloo/30">
                    <div className="aspect-video bg-gradient-to-r from-orange-lyloo to-vert-pale rounded-t-lg relative">
@@ -248,6 +226,8 @@ const PhysicalWellness = () => {
           type: exercise.type
         }))}
       />
+      
+      <BottomTabBar />
     </div>
   );
 };
