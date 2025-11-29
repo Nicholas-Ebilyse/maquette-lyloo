@@ -22,7 +22,7 @@ const MobileHeader = ({ title, subtitle }: MobileHeaderProps) => {
           <img 
             src="/src/assets/lyloo-logo.svg" 
             alt="LYLOO" 
-            className="h-10 logo"
+            className="h-16 logo"
           />
         </div>
         
