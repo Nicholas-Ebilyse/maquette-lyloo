@@ -18,13 +18,12 @@ const MobileHeader = ({ title, subtitle }: MobileHeaderProps) => {
   return (
     <header className="header-wave px-4 py-6 pb-10">
       <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center">
           <img 
-            src="/src/assets/lyloo-logo-leaf.png" 
+            src="/src/assets/lyloo-logo.svg" 
             alt="LYLOO" 
-            className="h-10 w-10 logo"
+            className="h-10 logo"
           />
-          <span className="text-[hsl(var(--anthracite))] font-bold text-xl">LYLOO</span>
         </div>
         
         <Sheet>
