@@ -9,14 +9,14 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 
 // Onboarding pages
 import Welcome from "./pages/onboarding/Welcome";
-import Objectifs from "./pages/onboarding/Objectifs";
+import OnboardingObjectifs from "./pages/onboarding/Objectifs";
 import Temps from "./pages/onboarding/Temps";
 import Notifications from "./pages/onboarding/Notifications";
 
 // Mobile pages
 import Accueil from "./pages/mobile/Accueil";
 import Communaute from "./pages/mobile/Communaute";
-import Suivi from "./pages/mobile/Suivi";
+import Objectifs from "./pages/mobile/Objectifs";
 
 // Existing pages
 import MentalWellness from "./pages/MentalWellness";
@@ -43,7 +43,7 @@ const App = () => (
               
               {/* Onboarding */}
               <Route path="/onboarding/welcome" element={<Welcome />} />
-              <Route path="/onboarding/objectifs" element={<Objectifs />} />
+              <Route path="/onboarding/objectifs" element={<OnboardingObjectifs />} />
               <Route path="/onboarding/temps" element={<Temps />} />
               <Route path="/onboarding/notifications" element={<Notifications />} />
               
@@ -81,13 +81,16 @@ const App = () => (
                 } 
               />
               <Route 
-                path="/suivi" 
+                path="/objectifs" 
                 element={
                   <ProtectedRoute>
-                    <Suivi />
+                    <Objectifs />
                   </ProtectedRoute>
                 } 
               />
+              
+              {/* Ancienne route suivi redirigée vers objectifs */}
+              <Route path="/suivi" element={<Navigate to="/objectifs" replace />} />
               
               {/* Other pages */}
               <Route 

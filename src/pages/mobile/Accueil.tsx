@@ -2,11 +2,15 @@ import MobileHeader from '@/components/mobile/MobileHeader';
 import BottomTabBar from '@/components/mobile/BottomTabBar';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Brain, Activity, TrendingUp } from 'lucide-react';
+import { Brain, Activity, Target, Sparkles, Users } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { getOracleQuoteOfTheDay } from '@/data/oracleQuotes';
+import { useAuth } from '@/hooks/useAuth';
 
 const Accueil = () => {
   const navigate = useNavigate();
+  const { profile } = useAuth();
+  const oracleQuote = getOracleQuoteOfTheDay();
 
   return (
     <div className="min-h-screen bg-background pb-20">
@@ -16,20 +20,38 @@ const Accueil = () => {
       />
 
       <main className="px-4 py-6 space-y-6">
-        {/* Citation du jour */}
-        <Card className="p-6 rounded-[var(--radius)] bg-[hsl(var(--beige))] border-2 border-[hsl(var(--marron-chaud))]/20 fade-in-up">
-          <p className="text-lg italic text-[hsl(var(--marron-chaud))] mb-3">
-            "La paix vient de l'intérieur. Ne la cherchez pas à l'extérieur."
+        {/* Message de bienvenue personnalisé */}
+        <div className="fade-in-up">
+          <h2 className="text-2xl font-bold text-[hsl(var(--anthracite))] mb-2">
+            Bonjour {profile?.first_name || 'toi'} ✨
+          </h2>
+          <p className="text-[hsl(var(--anthracite))]/70">
+            Prends un instant pour toi aujourd'hui
           </p>
-          <p className="text-sm font-bold text-[hsl(var(--anthracite))]">
-            — Bouddha
+        </div>
+
+        {/* Oracle du jour (phrase fixe selon le jour de la semaine) */}
+        <Card className="p-6 rounded-[var(--radius)] bg-gradient-to-br from-[hsl(var(--terracotta))]/10 to-[hsl(var(--vert-eau))]/10 border-2 border-[hsl(var(--terracotta))]/20 fade-in-up">
+          <div className="flex items-start gap-3 mb-3">
+            <Sparkles className="h-6 w-6 text-[hsl(var(--terracotta))] flex-shrink-0 mt-1" />
+            <div>
+              <p className="text-base font-bold text-[hsl(var(--marron-chaud))] mb-2">
+                Oracle du jour
+              </p>
+              <p className="text-lg italic text-[hsl(var(--anthracite))] leading-relaxed">
+                "{oracleQuote.texte}"
+              </p>
+            </div>
+          </div>
+          <p className="text-sm font-bold text-[hsl(var(--anthracite))] text-right">
+            — {oracleQuote.auteur}
           </p>
         </Card>
 
-        {/* Sélection du jour */}
+        {/* Actions rapides suggérées */}
         <div className="space-y-4 fade-in-up-delay-1">
           <h2 className="text-xl font-bold text-[hsl(var(--anthracite))]">
-            La sélection du jour
+            Actions rapides
           </h2>
           
           <div className="grid grid-cols-1 gap-4">
@@ -69,38 +91,45 @@ const Accueil = () => {
           </div>
         </div>
 
-        {/* Raccourcis */}
+        {/* Suggestions de parcours */}
         <div className="space-y-3 fade-in-up-delay-2">
           <h2 className="text-xl font-bold text-[hsl(var(--anthracite))]">
-            Raccourcis
+            Explore ton bien-être
           </h2>
           
-          <Button
-            onClick={() => navigate('/mental')}
-            className="w-full btn-pill bg-[hsl(var(--vert-eau))] hover:bg-[hsl(var(--vert-eau))]/90 text-[hsl(var(--anthracite))] font-bold justify-start gap-3"
-            size="lg"
-          >
-            <Brain className="h-5 w-5" />
-            Choisir une activité mentale
-          </Button>
+          <div className="grid grid-cols-2 gap-3">
+            <Button
+              onClick={() => navigate('/mental')}
+              className="h-24 btn-pill bg-[hsl(var(--vert-eau))] hover:bg-[hsl(var(--vert-eau))]/90 text-[hsl(var(--anthracite))] font-bold flex-col gap-2"
+            >
+              <Brain className="h-6 w-6" />
+              <span className="text-sm">Mental</span>
+            </Button>
 
-          <Button
-            onClick={() => navigate('/physique')}
-            className="w-full btn-pill bg-[hsl(var(--vert-pale))] hover:bg-[hsl(var(--vert-pale))]/90 text-[hsl(var(--anthracite))] font-bold justify-start gap-3"
-            size="lg"
-          >
-            <Activity className="h-5 w-5" />
-            Choisir une activité physique
-          </Button>
+            <Button
+              onClick={() => navigate('/physique')}
+              className="h-24 btn-pill bg-[hsl(var(--vert-pale))] hover:bg-[hsl(var(--vert-pale))]/90 text-[hsl(var(--anthracite))] font-bold flex-col gap-2"
+            >
+              <Activity className="h-6 w-6" />
+              <span className="text-sm">Physique</span>
+            </Button>
 
-          <Button
-            onClick={() => navigate('/suivi')}
-            className="w-full btn-pill bg-[hsl(var(--terracotta))] hover:bg-[hsl(var(--terracotta))]/90 text-white font-bold justify-start gap-3"
-            size="lg"
-          >
-            <TrendingUp className="h-5 w-5" />
-            Voir mes progrès
-          </Button>
+            <Button
+              onClick={() => navigate('/communaute')}
+              className="h-24 btn-pill bg-[hsl(var(--dore))] hover:bg-[hsl(var(--dore))]/90 text-[hsl(var(--anthracite))] font-bold flex-col gap-2"
+            >
+              <Users className="h-6 w-6" />
+              <span className="text-sm">Communauté</span>
+            </Button>
+
+            <Button
+              onClick={() => navigate('/objectifs')}
+              className="h-24 btn-pill bg-[hsl(var(--terracotta))] hover:bg-[hsl(var(--terracotta))]/90 text-white font-bold flex-col gap-2"
+            >
+              <Target className="h-6 w-6" />
+              <span className="text-sm">Objectifs</span>
+            </Button>
+          </div>
         </div>
       </main>
 

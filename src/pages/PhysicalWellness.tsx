@@ -98,8 +98,8 @@ const PhysicalWellness = () => {
   return (
     <div className="min-h-screen bg-background pb-20">
       <MobileHeader 
-        title="Bien-être physique" 
-        subtitle="Transforme ton corps et ton esprit"
+        title="Bien-être Physique" 
+        subtitle="Nutrition, recettes et exercices"
       />
       
       <div className="px-4 py-6 space-y-6">
