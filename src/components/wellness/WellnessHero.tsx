@@ -16,9 +16,9 @@ const WellnessHero = ({
   gradientColors = "from-vert-eau/20 via-terracotta-lyloo/10 to-marron-chaud/5"
 }: WellnessHeroProps) => {
   return (
-    <section className={`relative overflow-hidden bg-gradient-to-br ${gradientColors} py-16`}>
+    <section className="header-wave mb-8">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
         <img 
           src="/src/assets/lyloo-natural-decor.jpg" 
           alt="" 
