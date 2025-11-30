@@ -20,7 +20,7 @@ const MobileHeader = ({ title, subtitle }: MobileHeaderProps) => {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
           <img 
-            src="/src/assets/lyloo-logo.svg" 
+            src="/src/assets/lyloo-logo-anthracite.png" 
             alt="LYLOO" 
             className="h-16 logo"
           />
