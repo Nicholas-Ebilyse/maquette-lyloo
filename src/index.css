@@ -127,18 +127,44 @@
     @apply rounded-full px-6 py-3 transition-all duration-300 font-bold;
   }
 
-  /* Bandeau haut avec vagues */
+  /* Bandeau haut avec vagues douces et coins arrondis */
   .header-wave {
     background: var(--gradient-header);
-    @apply relative overflow-hidden;
+    @apply relative;
+    border-radius: 0 0 40px 40px;
+    padding-bottom: 50px;
   }
 
   .header-wave::after {
     content: '';
     @apply absolute bottom-0 left-0 right-0;
-    height: 30px;
+    height: 50px;
     background: hsl(var(--background));
-    clip-path: ellipse(100% 100% at 50% 100%);
+    clip-path: polygon(
+      0% 40%,
+      5% 30%,
+      10% 25%,
+      15% 22%,
+      20% 20%,
+      25% 22%,
+      30% 25%,
+      35% 30%,
+      40% 32%,
+      45% 30%,
+      50% 25%,
+      55% 22%,
+      60% 20%,
+      65% 22%,
+      70% 25%,
+      75% 30%,
+      80% 32%,
+      85% 30%,
+      90% 25%,
+      95% 22%,
+      100% 20%,
+      100% 100%,
+      0% 100%
+    );
   }
 
   /* Cartes colorées */

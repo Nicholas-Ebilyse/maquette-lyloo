@@ -8,9 +8,8 @@ const Home = () => {
       <Navigation />
       
       {/* Hero Section with Brand Image */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-vert-pale/30 to-vert-eau/20"></div>
-        <div className="relative container mx-auto px-4 py-12 text-center bg-beige-lyloo/90 rounded-3xl mx-4 my-8 shadow-xl border border-vert-eau/30">
+      <section className="header-wave mb-8">
+        <div className="container mx-auto px-4 py-12 text-center">
           <h1 className="font-playfair text-4xl md:text-5xl font-bold text-anthracite mb-4">
             Bienvenue chez Lyloo
           </h1>
