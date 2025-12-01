@@ -1,7 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Brain, Activity, Users, Target } from 'lucide-react';
+import { Activity, Users, Target } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import pictoAccueil from '@/assets/picto-accueil.png';
+import pictoMental from '@/assets/picto-mental.png';
 
 const BottomTabBar = () => {
   const location = useLocation();
@@ -11,8 +12,8 @@ const BottomTabBar = () => {
   const isAdmin = profile?.email === 'admin@lyloo.com'; // À adapter selon votre logique
   
   const tabs = [
-    { path: '/accueil', icon: 'image', label: 'Accueil' },
-    { path: '/mental', icon: Brain, label: 'Mental' },
+    { path: '/accueil', icon: 'image', image: pictoAccueil, label: 'Accueil' },
+    { path: '/mental', icon: 'image', image: pictoMental, label: 'Mental' },
     { path: '/physique', icon: Activity, label: 'Physique' },
     { path: '/communaute', icon: Users, label: 'Communauté' },
     { path: '/objectifs', icon: Target, label: 'Objectifs' },
@@ -21,7 +22,7 @@ const BottomTabBar = () => {
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-[hsl(var(--anthracite))] border-t border-[hsl(var(--vert-eau))]/20 safe-area-inset-bottom z-50">
       <div className="flex justify-around items-center h-16 px-2">
-        {tabs.map(({ path, icon, label }) => {
+        {tabs.map(({ path, icon, image, label }) => {
           const isActive = location.pathname === path;
           return (
             <Link
@@ -33,8 +34,8 @@ const BottomTabBar = () => {
             >
               {icon === 'image' ? (
                 <img 
-                  src={pictoAccueil} 
-                  alt="Accueil" 
+                  src={image} 
+                  alt={label} 
                   className={`w-6 h-6 mb-1 ${isActive ? 'scale-110 opacity-100' : 'opacity-60'} transition-all duration-300`}
                   style={{ filter: 'brightness(0) saturate(100%) invert(94%) sepia(13%) saturate(283%) hue-rotate(355deg) brightness(103%) contrast(91%)' }}
                 />
