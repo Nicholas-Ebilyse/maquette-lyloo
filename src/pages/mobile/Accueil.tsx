@@ -15,7 +15,11 @@ const Accueil = () => {
   return (
     <div className="min-h-screen bg-background pb-20">
       <MobileHeader 
-        title="L'équilibre commence en douceur" 
+        title={
+          <>
+            L'équilibre commence <span className="font-outfit font-semibold">en douceur</span>
+          </>
+        }
         subtitle="Bonjour, prenons soin de nous aujourd'hui"
       />
 

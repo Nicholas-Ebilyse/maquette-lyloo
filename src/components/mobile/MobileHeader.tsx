@@ -8,9 +8,10 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { Link } from 'react-router-dom';
+import { ReactNode } from 'react';
 
 interface MobileHeaderProps {
-  title: string;
+  title: string | ReactNode;
   subtitle?: string;
 }
 
