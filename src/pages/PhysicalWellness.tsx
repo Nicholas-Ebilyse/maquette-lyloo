@@ -142,16 +142,16 @@ const PhysicalWellness = () => {
                        alt={plan.title}
                        className="w-full h-full object-cover"
                      />
-                     <Badge className="absolute top-3 right-3 bg-terracotta-lyloo/90 text-white">
-                       {plan.duration}
-                     </Badge>
+                      <Badge className="absolute top-3 right-3 bg-terracotta-lyloo/90 text-[hsl(var(--anthracite))]">
+                        {plan.duration}
+                      </Badge>
                    </div>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Utensils className="h-5 w-5 text-primary" />
                       {plan.title}
                     </CardTitle>
-                    <CardDescription>{plan.description}</CardDescription>
+                    <CardDescription className="text-[hsl(var(--anthracite))]/70">{plan.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="flex justify-between items-center mb-4">
@@ -179,19 +179,19 @@ const PhysicalWellness = () => {
                        alt={exercise.title}
                        className="w-full h-full object-cover"
                      />
-                     <Badge className="absolute top-3 right-3 bg-marron-chaud/90 text-white">
-                       {exercise.duration}
-                     </Badge>
-                     <Badge className="absolute top-3 left-3 bg-dore-clair/90 text-marron-chaud">
-                       {exercise.type}
-                     </Badge>
+                      <Badge className="absolute top-3 right-3 bg-marron-chaud/90 text-[hsl(var(--anthracite))]">
+                        {exercise.duration}
+                      </Badge>
+                      <Badge className="absolute top-3 left-3 bg-dore-clair/90 text-[hsl(var(--anthracite))]">
+                        {exercise.type}
+                      </Badge>
                    </div>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Activity className="h-5 w-5 text-primary" />
                       {exercise.title}
                     </CardTitle>
-                    <CardDescription>{exercise.description}</CardDescription>
+                    <CardDescription className="text-[hsl(var(--anthracite))]/70">{exercise.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="flex justify-between items-center mb-4">
