@@ -170,7 +170,7 @@
   /* Cartes colorées */
   .card-mental {
     background: var(--gradient-mental);
-    @apply text-white rounded-[var(--radius)] shadow-lg border-0;
+    @apply text-[hsl(var(--anthracite))] rounded-[var(--radius)] shadow-lg border-0;
   }
 
   .card-physical {

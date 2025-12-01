@@ -117,7 +117,7 @@ const Accueil = () => {
 
             <Button
               onClick={() => navigate('/objectifs')}
-              className="h-24 btn-pill bg-[hsl(var(--terracotta))] hover:bg-[hsl(var(--terracotta))]/90 text-white font-bold flex-col gap-2"
+              className="h-24 btn-pill bg-[hsl(var(--terracotta))] hover:bg-[hsl(var(--terracotta))]/90 text-[hsl(var(--anthracite))] font-bold flex-col gap-2"
             >
               <Target className="h-6 w-6" />
               <span className="text-sm">Objectifs</span>

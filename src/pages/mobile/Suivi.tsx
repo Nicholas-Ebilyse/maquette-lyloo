@@ -124,7 +124,7 @@ const Suivi = () => {
               placeholder="Note ton ressenti du jour..."
               rows={3}
             />
-            <Button className="w-full mt-3 btn-pill bg-[hsl(var(--terracotta))] hover:bg-[hsl(var(--terracotta))]/90 text-white font-bold">
+            <Button className="w-full mt-3 btn-pill bg-[hsl(var(--terracotta))] hover:bg-[hsl(var(--terracotta))]/90 text-[hsl(var(--anthracite))] font-bold">
               Enregistrer
             </Button>
           </Card>
