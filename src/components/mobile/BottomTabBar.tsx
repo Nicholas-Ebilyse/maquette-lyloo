@@ -1,9 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Users, Target } from 'lucide-react';
+import { Target } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import pictoAccueil from '@/assets/picto-accueil.png';
 import pictoMental from '@/assets/picto-mental.png';
 import pictoPhysique from '@/assets/picto-physique.png';
+import pictoCommunaute from '@/assets/picto-communaute.png';
 
 const BottomTabBar = () => {
   const location = useLocation();
@@ -16,7 +17,7 @@ const BottomTabBar = () => {
     { path: '/accueil', icon: 'image', image: pictoAccueil, label: 'Accueil' },
     { path: '/mental', icon: 'image', image: pictoMental, label: 'Mental' },
     { path: '/physique', icon: 'image', image: pictoPhysique, label: 'Physique' },
-    { path: '/communaute', icon: Users, label: 'Communauté' },
+    { path: '/communaute', icon: 'image', image: pictoCommunaute, label: 'Communauté' },
     { path: '/objectifs', icon: Target, label: 'Objectifs' },
   ];
 
