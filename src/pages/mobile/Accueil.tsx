@@ -17,38 +17,27 @@ const Accueil = () => {
       <MobileHeader 
         title={
           <>
-            L'équilibre commence <span className="font-kaushan text-2xl">en douceur</span>
+            L'équilibre commence<br />
+            <span className="font-kaushan text-2xl">en douceur</span>
           </>
         }
-        subtitle="Bonjour, prenons soin de nous aujourd'hui"
       />
 
       <main className="px-4 py-6 space-y-6">
-        {/* Message de bienvenue personnalisé */}
+        {/* Pensée positive du jour */}
         <div className="fade-in-up">
-          <h2 className="text-2xl font-bold text-[hsl(var(--anthracite))] mb-2">
-            Bonjour {profile?.first_name || 'toi'} ✨
+          <h2 className="text-xl font-bold text-[hsl(var(--anthracite))] mb-4">
+            Pensée positive du jour
           </h2>
-          <p className="text-[hsl(var(--anthracite))]/70">
-            Prends un instant pour toi aujourd'hui
-          </p>
         </div>
 
-        {/* Oracle du jour (phrase fixe selon le jour de la semaine) */}
-        <Card className="p-6 rounded-[var(--radius)] bg-gradient-to-br from-[hsl(var(--terracotta))]/10 to-[hsl(var(--vert-eau))]/10 border-2 border-[hsl(var(--terracotta))]/20 fade-in-up">
-          <div className="flex items-start gap-3 mb-3">
-            <Sparkles className="h-6 w-6 text-[hsl(var(--terracotta))] flex-shrink-0 mt-1" />
-            <div>
-              <p className="text-base font-bold text-[hsl(var(--marron-chaud))] mb-2">
-                Oracle du jour
-              </p>
-              <p className="text-lg italic text-[hsl(var(--anthracite))] leading-relaxed">
-                "{oracleQuote.texte}"
-              </p>
-            </div>
-          </div>
+        {/* Citation du jour */}
+        <Card className="p-8 rounded-[32px] bg-[hsl(var(--vert-eau))]/30 border-none shadow-sm fade-in-up">
+          <p className="text-lg italic text-[hsl(var(--anthracite))] leading-relaxed mb-4">
+            "{oracleQuote.texte}"
+          </p>
           <p className="text-sm font-bold text-[hsl(var(--anthracite))] text-right">
-            — {oracleQuote.auteur}
+            — <span className="font-kaushan text-base">{oracleQuote.auteur}</span>
           </p>
         </Card>
 
