@@ -1,245 +1,128 @@
-import { useState, useEffect } from "react";
-import MobileHeader from "@/components/mobile/MobileHeader";
+import { useState } from "react";
 import BottomTabBar from "@/components/mobile/BottomTabBar";
-import ContentCard from "@/components/wellness/ContentCard";
-import MediaPlayer from "@/components/media/MediaPlayer";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { supabase } from "@/integrations/supabase/client";
-import { Database } from "@/integrations/supabase/types";
-import { getImageUrl } from "@/components/admin/ImageMapping";
-import { 
-  Search, 
-  Filter,
-  Brain,
-  Wind,
-  Moon,
-  Heart,
-  Smile,
-  Zap
-} from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Brain } from "lucide-react";
+import mentalIcon from "@/assets/picto-mental.png";
 
-type WellnessContent = Database["public"]["Tables"]["wellness_content"]["Row"];
-type Category = Database["public"]["Tables"]["categories"]["Row"];
-
-interface WellnessContentWithCategory extends WellnessContent {
-  categories?: {
-    name: string;
-    icon: string | null;
-  } | null;
-}
+const categories = [
+  { name: "Méditation", color: "beige" },
+  { name: "Respiration", color: "terracotta" },
+  { name: "Hypnose", color: "marron" },
+  { name: "Sommeil", color: "beige" },
+  { name: "Sophrologie", color: "terracotta" },
+  { name: "Yoga du rire", color: "marron" },
+  { name: "Psycho-corporel", color: "beige" },
+];
 
 const MentalWellness = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [activeFilter, setActiveFilter] = useState("Tous");
-  const [contents, setContents] = useState<WellnessContentWithCategory[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedContent, setSelectedContent] = useState<WellnessContentWithCategory | null>(null);
-  const [isPlayerOpen, setIsPlayerOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchCategories();
-    fetchContents();
-  }, []);
-
-  const fetchCategories = async () => {
-    const { data, error } = await supabase
-      .from('categories')
-      .select('*')
-      .order('name');
-    
-    if (error) {
-      console.error('Error fetching categories:', error);
-    } else if (data) {
-      setCategories(data);
+  const getBackgroundColor = (color: string) => {
+    switch (color) {
+      case "beige":
+        return "bg-[#f5f2e6]";
+      case "terracotta":
+        return "bg-[#ec9b7b]";
+      case "marron":
+        return "bg-[#615245]";
+      default:
+        return "bg-[#f5f2e6]";
     }
   };
-
-  const fetchContents = async () => {
-    const { data, error } = await supabase
-      .from('wellness_content')
-      .select(`
-        *,
-        categories (
-          name,
-          icon
-        )
-      `)
-      .order('created_at', { ascending: false });
-    
-    if (error) {
-      console.error('Error fetching content:', error);
-    } else if (data) {
-      setContents(data);
-    }
-    setLoading(false);
-  };
-
-  const getCategoriesWithCount = () => {
-    const categoryCount = categories.map(category => {
-      const count = contents.filter(content => content.category_id === category.id).length;
-      return { ...category, count };
-    });
-
-    const totalCount = contents.length;
-    return [
-      { id: 'all', name: "Tous", icon: "Brain", count: totalCount },
-      ...categoryCount
-    ];
-  };
-
-  const filteredContents = contents.filter(content => {
-    const categoryName = content.categories?.name || '';
-    const matchesSearch = content.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         categoryName.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesFilter = activeFilter === "Tous" || categoryName === activeFilter;
-    return matchesSearch && matchesFilter;
-  });
-
-  // Limiter à 3 éléments par catégorie
-  const limitedContents = activeFilter === "Tous" 
-    ? categories.reduce((acc, category) => {
-        const categoryContents = filteredContents
-          .filter(content => content.categories?.name === category.name)
-          .slice(0, 3);
-        return [...acc, ...categoryContents];
-      }, [] as WellnessContentWithCategory[])
-    : filteredContents.slice(0, 3);
-
-  const handlePlay = (contentId: string) => {
-    const content = contents.find(c => c.id === contentId);
-    if (content) {
-      setSelectedContent(content);
-      setIsPlayerOpen(true);
-    }
-  };
-
-  const getIconComponent = (iconName: string) => {
-    const icons: { [key: string]: any } = {
-      Brain, Wind, Moon, Heart, Smile, Zap
-    };
-    return icons[iconName] || Brain;
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background pb-20">
-        <MobileHeader title="Bien-être mental" />
-        <main className="px-4 py-8">
-          <div className="text-center">
-            <p className="text-[hsl(var(--anthracite))]/70">Chargement...</p>
-          </div>
-        </main>
-        <BottomTabBar />
-      </div>
-    );
-  }
 
   return (
-    <div className="min-h-screen bg-background pb-20">
-      <MobileHeader 
-        title={
-          <>
-            Bien-être <span className="font-kaushan text-2xl">Mental</span>
-          </>
-        }
-        subtitle="Contenus vidéo pour cultiver ta sérénité"
-      />
-      
-      <main className="px-4 py-6 space-y-6">
+    <div className="min-h-screen bg-[hsl(var(--beige))] pb-20">
+      {/* Custom Header with vert d'eau background */}
+      <div className="bg-[#a5cdbc] pt-4 pb-12 px-6 rounded-b-[40px] relative">
+        {/* Logo in top left */}
+        <div className="absolute top-4 left-6">
+          <img 
+            src="/src/assets/lyloo-logo-anthracite.png" 
+            alt="LYLOO" 
+            className="h-20"
+          />
+        </div>
 
-        {/* Search and Filters */}
-        <div className="space-y-4">
-          {/* Search Bar */}
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[hsl(var(--anthracite))]/50" />
-            <Input
-              placeholder="Rechercher un contenu..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-11 rounded-full h-12 bg-[hsl(var(--beige))] border-2 border-[hsl(var(--vert-eau))]/20"
+        {/* Mental Icon - half in vert d'eau, half in beige */}
+        <div className="absolute left-6 bottom-0 transform translate-y-1/2 z-10">
+          <div className="w-20 h-20 rounded-full overflow-hidden">
+            <img 
+              src={mentalIcon} 
+              alt="Mental" 
+              className="w-full h-full object-cover"
             />
           </div>
+        </div>
 
-          {/* Categories */}
-          <div className="flex flex-wrap gap-2">
-            {getCategoriesWithCount().map((category) => {
-              const IconComponent = getIconComponent(category.icon);
-              const isActiveCat = activeFilter === category.name;
-              const isTous = category.name === "Tous";
-              return (
-                <button
-                  key={category.id || category.name}
-                  onClick={() => setActiveFilter(category.name)}
-                  className={`category-pill ${isActiveCat ? 'active' : ''} ${
-                    isTous
-                      ? isActiveCat 
-                        ? "bg-[hsl(var(--marron-chaud))] text-[hsl(var(--anthracite))]"
-                        : "bg-[hsl(var(--marron-chaud))]/10 text-[hsl(var(--marron-chaud))] border-2 border-[hsl(var(--marron-chaud))]/30"
-                      : isActiveCat
-                        ? "bg-[hsl(var(--marron-chaud))] text-[hsl(var(--anthracite))]"
-                        : "bg-[hsl(var(--beige))] text-[hsl(var(--anthracite))] border-2 border-[hsl(var(--marron-chaud))]/20"
-                  }`}
+        {/* Title on the right */}
+        <div className="flex flex-col items-end mt-16">
+          <h1 className="text-[hsl(var(--anthracite))] text-2xl font-atkinson font-bold">
+            Bien-être
+          </h1>
+          <h2 className="text-[hsl(var(--anthracite))] text-3xl font-kaushan">
+            Mental
+          </h2>
+        </div>
+      </div>
+
+      <main className="px-6 pt-16 pb-6">
+        {/* Carousel */}
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {categories.map((category, index) => (
+              <CarouselItem key={index} className="pl-4 basis-4/5">
+                <div
+                  className={`${getBackgroundColor(category.color)} rounded-3xl p-8 h-48 relative overflow-hidden cursor-pointer transition-transform hover:scale-105`}
+                  onClick={() => setSelectedCategory(category.name)}
                 >
-                  <IconComponent className="h-4 w-4 mr-2 inline" />
-                  {category.name}
-                  <span className="ml-2 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold">
-                    {category.count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
+                  {/* Icon en filigrane */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10">
+                    <img 
+                      src={mentalIcon} 
+                      alt="" 
+                      className="w-32 h-32"
+                    />
+                  </div>
+                  
+                  {/* Category name */}
+                  <div className="relative z-10 flex items-center justify-center h-full">
+                    <h3 className="text-[hsl(var(--anthracite))] text-2xl font-atkinson font-bold text-center">
+                      {category.name}
+                    </h3>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 gap-4">
-          {limitedContents.map((content) => (
-            <ContentCard
-              key={content.id}
-              title={content.title}
-              duration={`${content.duration_minutes} min`}
-              type={content.content_type}
-              category={content.categories?.name || 'Non catégorisé'}
-              level={content.difficulty_level}
-              isPremium={content.is_premium}
-              rating={content.rating || undefined}
-              image={getImageUrl(content.thumbnail_url, content.categories?.name, content.content_type)}
-              onPlay={() => handlePlay(content.id)}
-            />
-          ))}
-        </div>
-
-        {/* Empty State */}
-        {limitedContents.length === 0 && (
-          <div className="text-center py-12">
-            <Brain className="h-16 w-16 text-[hsl(var(--anthracite))]/50 mx-auto mb-4" />
-            <h3 className="font-playfair text-xl font-semibold text-[hsl(var(--anthracite))] mb-2">
-              Aucun contenu trouvé
-            </h3>
-            <p className="text-[hsl(var(--anthracite))]/70">
-              Essayez de modifier vos critères de recherche
-            </p>
+          {/* Navigation avec flèches en marron chaud */}
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <CarouselPrevious className="static transform-none bg-[#615245] text-white hover:bg-[#615245]/80 border-none" />
+            <div className="flex gap-2">
+              {categories.map((_, index) => (
+                <div
+                  key={index}
+                  className="w-2 h-2 rounded-full bg-[#615245]/30"
+                />
+              ))}
+            </div>
+            <CarouselNext className="static transform-none bg-[#615245] text-white hover:bg-[#615245]/80 border-none" />
           </div>
-        )}
+        </Carousel>
       </main>
 
-      {/* Media Player */}
-      {selectedContent && (
-        <MediaPlayer
-          isOpen={isPlayerOpen}
-          onClose={() => setIsPlayerOpen(false)}
-          title={selectedContent.title}
-          type={selectedContent.content_type}
-          src={selectedContent.content_type === 'video' 
-            ? selectedContent.video_url || 'https://www.w3schools.com/html/mov_bbb.mp4'
-            : selectedContent.audio_url || 'https://www.w3schools.com/html/horse.mp3'}
-          thumbnailSrc={getImageUrl(selectedContent.thumbnail_url, selectedContent.categories?.name, selectedContent.content_type)}
-        />
-      )}
-      
       <BottomTabBar />
     </div>
   );
