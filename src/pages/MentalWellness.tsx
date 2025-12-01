@@ -26,13 +26,13 @@ const MentalWellness = () => {
   const getBackgroundColor = (color: string) => {
     switch (color) {
       case "beige":
-        return "bg-[#f5f2e6]";
+        return "bg-[#a5cdbc]";
       case "terracotta":
         return "bg-[#ec9b7b]";
       case "marron":
         return "bg-[#615245]";
       default:
-        return "bg-[#f5f2e6]";
+        return "bg-[#a5cdbc]";
     }
   };
 
@@ -49,25 +49,28 @@ const MentalWellness = () => {
           />
         </div>
 
-        {/* Mental Icon - half in vert d'eau, half in beige */}
-        <div className="absolute left-6 bottom-0 transform translate-y-1/2 z-10">
-          <div className="w-20 h-20 rounded-full overflow-hidden">
-            <img 
-              src={mentalIcon} 
-              alt="Mental" 
-              className="w-full h-full object-cover"
-            />
+        {/* Mental Icon and Title - centered together */}
+        <div className="flex items-center justify-center mt-16 relative">
+          {/* Mental Icon - half in vert d'eau, half in beige */}
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-1/2 z-10 flex items-center gap-4">
+            <div className="w-28 h-28 rounded-full overflow-hidden flex-shrink-0">
+              <img 
+                src={mentalIcon} 
+                alt="Mental" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            {/* Title next to icon */}
+            <div className="flex flex-col">
+              <h1 className="text-[hsl(var(--anthracite))] text-2xl font-atkinson font-bold">
+                Bien-être
+              </h1>
+              <h2 className="text-[hsl(var(--anthracite))] text-3xl font-kaushan">
+                Mental
+              </h2>
+            </div>
           </div>
-        </div>
-
-        {/* Title on the right */}
-        <div className="flex flex-col items-end mt-16">
-          <h1 className="text-[hsl(var(--anthracite))] text-2xl font-atkinson font-bold">
-            Bien-être
-          </h1>
-          <h2 className="text-[hsl(var(--anthracite))] text-3xl font-kaushan">
-            Mental
-          </h2>
         </div>
       </div>
 
