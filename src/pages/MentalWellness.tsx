@@ -172,10 +172,10 @@ const MentalWellness = () => {
                   className={`category-pill ${isActiveCat ? 'active' : ''} ${
                     isTous
                       ? isActiveCat 
-                        ? "bg-[hsl(var(--marron-chaud))] text-white"
+                        ? "bg-[hsl(var(--marron-chaud))] text-[hsl(var(--anthracite))]"
                         : "bg-[hsl(var(--marron-chaud))]/10 text-[hsl(var(--marron-chaud))] border-2 border-[hsl(var(--marron-chaud))]/30"
                       : isActiveCat
-                        ? "bg-[hsl(var(--marron-chaud))] text-white"
+                        ? "bg-[hsl(var(--marron-chaud))] text-[hsl(var(--anthracite))]"
                         : "bg-[hsl(var(--beige))] text-[hsl(var(--anthracite))] border-2 border-[hsl(var(--marron-chaud))]/20"
                   }`}
                 >
@@ -211,11 +211,11 @@ const MentalWellness = () => {
         {/* Empty State */}
         {limitedContents.length === 0 && (
           <div className="text-center py-12">
-            <Brain className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-            <h3 className="font-playfair text-xl font-semibold mb-2">
+            <Brain className="h-16 w-16 text-[hsl(var(--anthracite))]/50 mx-auto mb-4" />
+            <h3 className="font-playfair text-xl font-semibold text-[hsl(var(--anthracite))] mb-2">
               Aucun contenu trouvé
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text-[hsl(var(--anthracite))]/70">
               Essayez de modifier vos critères de recherche
             </p>
           </div>
