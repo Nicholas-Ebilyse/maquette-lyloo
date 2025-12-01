@@ -17,7 +17,7 @@ const Accueil = () => {
       <MobileHeader 
         title={
           <>
-            L'équilibre commence <span className="font-outfit font-semibold">en douceur</span>
+            L'équilibre commence <span className="font-outfit font-bold">en douceur</span>
           </>
         }
         subtitle="Bonjour, prenons soin de nous aujourd'hui"
