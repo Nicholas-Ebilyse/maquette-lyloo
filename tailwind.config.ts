@@ -21,7 +21,7 @@ export default {
 		fontFamily: {
 			sans: ['Atkinson Hyperlegible', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
 			outfit: ['Outfit', 'sans-serif'],
-			pacifico: ['Pacifico', 'cursive'],
+			caveat: ['Caveat', 'cursive'],
 		},
 			colors: {
 				border: 'hsl(var(--border))',
