@@ -140,7 +140,11 @@ const MentalWellness = () => {
   return (
     <div className="min-h-screen bg-background pb-20">
       <MobileHeader 
-        title="Bien-être Mental" 
+        title={
+          <>
+            Bien-être <span className="font-kaushan text-2xl">Mental</span>
+          </>
+        }
         subtitle="Contenus vidéo pour cultiver ta sérénité"
       />
       
