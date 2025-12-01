@@ -18,10 +18,11 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				sans: ['Atkinson Hyperlegible', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-				outfit: ['Outfit', 'sans-serif'],
-			},
+		fontFamily: {
+			sans: ['Atkinson Hyperlegible', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+			outfit: ['Outfit', 'sans-serif'],
+			kaushan: ['Kaushan Script', 'cursive'],
+		},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
