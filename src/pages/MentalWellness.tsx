@@ -10,6 +10,8 @@ import {
 import { Brain } from "lucide-react";
 import mentalIcon from "@/assets/picto-mental.png";
 import lylooLogo from "@/assets/lyloo-logo-anthracite.png";
+import meditationSelection from "@/assets/meditation-selection.jpg";
+import sleepSelection from "@/assets/sleep-selection.jpg";
 
 const categories = [
   { name: "Méditation", color: "beige" },
@@ -19,6 +21,7 @@ const categories = [
   { name: "Sophrologie", color: "terracotta" },
   { name: "Yoga du rire", color: "marron" },
   { name: "Psycho-corporel", color: "beige" },
+  { name: "Yoga", color: "terracotta" },
 ];
 
 const MentalWellness = () => {
@@ -37,10 +40,14 @@ const MentalWellness = () => {
     }
   };
 
+  const getTextColor = (color: string) => {
+    return color === "marron" ? "text-[#f5f2e6]" : "text-[hsl(var(--anthracite))]";
+  };
+
   return (
     <div className="min-h-screen bg-[hsl(var(--beige))] pb-20">
       {/* Custom Header with vert d'eau background */}
-      <div className="bg-[#a5cdbc] pt-4 pb-12 px-6 rounded-b-[40px] relative">
+      <div className="bg-[#a5cdbc] pt-4 pb-16 px-6 rounded-b-[40px] relative">
         {/* Logo in top left */}
         <div className="absolute top-4 left-6 z-20">
           <img 
@@ -50,10 +57,10 @@ const MentalWellness = () => {
           />
         </div>
 
-        {/* Mental Icon and Title - centered together */}
+        {/* Mental Icon and Title */}
         <div className="flex items-center justify-center mt-16 relative">
-          {/* Mental Icon - half in vert d'eau, half in beige */}
-          <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-1/2 z-10 flex items-center gap-4">
+          {/* Mental Icon - positioned to overlap header and content */}
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-12 z-10 flex items-center gap-6">
             <div className="w-28 h-28 rounded-full overflow-hidden flex-shrink-0">
               <img 
                 src={mentalIcon} 
@@ -63,11 +70,11 @@ const MentalWellness = () => {
             </div>
             
             {/* Title next to icon */}
-            <div className="flex flex-col">
-              <h1 className="text-[hsl(var(--anthracite))] text-2xl font-atkinson font-bold">
+            <div className="flex flex-col items-start">
+              <h1 className="text-[hsl(var(--anthracite))] text-2xl font-atkinson font-bold whitespace-nowrap">
                 Bien-être
               </h1>
-              <h2 className="text-[hsl(var(--anthracite))] text-3xl font-kaushan">
+              <h2 className="text-[hsl(var(--anthracite))] text-3xl font-kaushan -ml-3">
                 Mental
               </h2>
             </div>
@@ -75,7 +82,44 @@ const MentalWellness = () => {
         </div>
       </div>
 
-      <main className="px-6 pt-16 pb-6">
+      <main className="px-6 pt-20 pb-6">
+        {/* La sélection du jour */}
+        <div className="bg-[#f5f2e6] rounded-3xl p-6 mb-8">
+          <h2 className="text-[hsl(var(--anthracite))] text-2xl font-atkinson font-bold text-center mb-6">
+            La sélection du jour
+          </h2>
+          
+          <div className="grid grid-cols-2 gap-4">
+            {/* Méditation */}
+            <div className="relative rounded-2xl overflow-hidden">
+              <img 
+                src={meditationSelection} 
+                alt="Méditation" 
+                className="w-full h-48 object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-3 flex justify-center">
+                <button className="bg-[#a5cdbc] text-[hsl(var(--anthracite))] font-atkinson font-bold px-6 py-2 rounded-full">
+                  Méditation
+                </button>
+              </div>
+            </div>
+
+            {/* Sommeil */}
+            <div className="relative rounded-2xl overflow-hidden">
+              <img 
+                src={sleepSelection} 
+                alt="Sommeil" 
+                className="w-full h-48 object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-3 flex justify-center">
+                <button className="bg-[#615245] text-[#f5f2e6] font-atkinson font-bold px-6 py-2 rounded-full">
+                  Sommeil
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Carousel */}
         <Carousel
           opts={{
@@ -102,7 +146,7 @@ const MentalWellness = () => {
                   
                   {/* Category name */}
                   <div className="relative z-10 flex items-center justify-center h-full">
-                    <h3 className="text-[hsl(var(--anthracite))] text-2xl font-atkinson font-bold text-center">
+                    <h3 className={`${getTextColor(category.color)} text-2xl font-atkinson font-bold text-center`}>
                       {category.name}
                     </h3>
                   </div>
