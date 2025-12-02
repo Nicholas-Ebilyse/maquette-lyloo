@@ -1,231 +1,122 @@
-import { useState, useEffect } from "react";
 import MobileHeader from "@/components/mobile/MobileHeader";
 import BottomTabBar from "@/components/mobile/BottomTabBar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Utensils, 
-  Activity, 
-  ShoppingCart, 
-  Calendar,
-  Search,
-  Filter,
-  Clock,
-  Users,
-  Star
-} from "lucide-react";
-import ExerciseCalendar from "@/components/calendar/ExerciseCalendar";
-import { getDifficultyBadgeClasses } from "@/lib/difficulty-colors";
-import { supabase } from "@/integrations/supabase/client";
-import { Database } from "@/integrations/supabase/types";
-
-type Recipe = Database["public"]["Tables"]["recipes"]["Row"];
+import { Utensils, Activity } from "lucide-react";
+import lylooLogo from '@/assets/lyloo-logo-anthracite.png';
+import pictoPhysique from '@/assets/picto-physique.png';
+import yogaSelection from '@/assets/lyloo-yoga-selection.jpg';
+import recipeSelection from '@/assets/lyloo-recipe-selection.jpg';
 
 const PhysicalWellness = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-
-  useEffect(() => {
-    fetchRecipes();
-  }, []);
-
-  const fetchRecipes = async () => {
-    const { data, error } = await supabase
-      .from('recipes')
-      .select('*')
-      .order('created_at', { ascending: false });
-    
-    if (error) {
-      console.error('Error fetching recipes:', error);
-    } else if (data) {
-      setRecipes(data);
-    }
-    setLoading(false);
-  };
-
-  const mealPlans = [
-    {
-      id: 1,
-      title: "Détox 7 jours",
-      description: "Plan alimentaire pour purifier votre organisme",
-      duration: "7 jours",
-      difficulty: "Débutant",
-      image: "photo-1500673922987-e212871fec22"
-    },
-    {
-      id: 2,
-      title: "Energie & Vitalité",
-      description: "Boostez votre énergie avec des repas équilibrés",
-      duration: "14 jours",
-      difficulty: "Intermédiaire",
-      image: "photo-1465146344425-f00d5f5c8f07"
-    }
-  ];
-
-  const exercises = [
-    {
-      id: 1,
-      title: "Yoga matinal",
-      description: "Réveillez votre corps en douceur",
-      duration: "20 min",
-      level: "Débutant",
-      type: "Vidéo",
-      image: "photo-1581091226825-a6a2a5aee158"
-    },
-    {
-      id: 2,
-      title: "Cardio intense",
-      description: "Brûlez des calories efficacement",
-      duration: "30 min",
-      level: "Avancé",
-      type: "Vidéo",
-      image: "photo-1518770660439-4636190af475"
-    }
-  ];
-
-  const formatTime = (minutes: number) => {
-    if (minutes < 60) return `${minutes} min`;
-    const hours = Math.floor(minutes / 60);
-    const remainingMinutes = minutes % 60;
-    return `${hours}h${remainingMinutes > 0 ? ` ${remainingMinutes}min` : ''}`;
-  };
-
   return (
-    <div className="min-h-screen bg-background pb-20">
-      <MobileHeader 
-        title="Bien-être Physique" 
-        subtitle="Nutrition, recettes et exercices"
-      />
-      
-      <div className="px-4 py-6 space-y-6">
-        {/* Search and filters */}
-        <div className="flex gap-3">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[hsl(var(--anthracite))]/50" />
-            <Input
-              placeholder="Rechercher un programme, exercice..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-11 rounded-full h-12 bg-[hsl(var(--beige))] border-2 border-[hsl(var(--vert-pale))]/20"
+    <div className="min-h-screen bg-[#f5f2e6] pb-20">
+      {/* Custom Header with Wave Banner */}
+      <div className="relative">
+        {/* Wave Banner - Vert pâle */}
+        <div className="bg-[#cce1b0] pt-6 pb-16 px-6 rounded-b-[40px] relative">
+          {/* Logo LYLOO */}
+          <div className="flex justify-center mb-4 relative z-20">
+            <img 
+              src={lylooLogo} 
+              alt="LYLOO" 
+              className="h-8 object-contain"
             />
+          </div>
+
+          {/* Title Section */}
+          <div className="relative z-10 flex items-start justify-center gap-4">
+            {/* Physical Icon - overlapping banner and content */}
+            <div className="absolute left-6 top-0 translate-y-12 z-20">
+              <img 
+                src={pictoPhysique}
+                alt="Physique"
+                className="w-28 h-28 object-contain"
+              />
+            </div>
+            
+            {/* Title */}
+            <div className="text-center flex flex-col items-center">
+              <h1 className="text-2xl font-bold text-[#373a37] whitespace-nowrap">
+                Bien-être
+              </h1>
+              <h2 className="text-3xl text-[#373a37] font-['Kaushan_Script'] -ml-3">
+                Physique
+              </h2>
+            </div>
           </div>
         </div>
 
-        <Tabs defaultValue="meals" className="space-y-4">
-          <TabsList className="grid w-full grid-cols-2 h-12 bg-[hsl(var(--beige))] border-2 border-[hsl(var(--vert-pale))]/20 rounded-full p-1">
-            <TabsTrigger 
-              value="meals" 
-              className="rounded-full data-[state=active]:bg-[hsl(var(--vert-pale))] data-[state=active]:text-[hsl(var(--anthracite))] font-bold"
-            >
-              Nutrition
-            </TabsTrigger>
-            <TabsTrigger 
-              value="exercises"
-              className="rounded-full data-[state=active]:bg-[hsl(var(--dore))] data-[state=active]:text-[hsl(var(--anthracite))] font-bold"
-            >
-              Exercices
-            </TabsTrigger>
-          </TabsList>
+        {/* La sélection du jour - Beige background */}
+        <div className="bg-[#f5f2e6] px-6 pt-16 pb-6">
+          <h2 className="text-2xl font-bold text-[#373a37] text-center mb-6">
+            La sélection du jour
+          </h2>
 
-          <TabsContent value="meals" className="space-y-4">
-            <div className="grid grid-cols-1 gap-4">
-              {mealPlans.slice(0, 3).map((plan) => (
-                 <Card key={plan.id} className="overflow-hidden hover-scale border border-vert-pale/30">
-                   <div className="aspect-video bg-gradient-to-r from-vert-pale to-dore-clair rounded-t-lg relative">
-                     <img
-                       src="/src/assets/lyloo-healthy-salad.jpg"
-                       alt={plan.title}
-                       className="w-full h-full object-cover"
-                     />
-                      <Badge className="absolute top-3 right-3 bg-terracotta-lyloo/90 text-[hsl(var(--anthracite))]">
-                        {plan.duration}
-                      </Badge>
-                   </div>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Utensils className="h-5 w-5 text-primary" />
-                      {plan.title}
-                    </CardTitle>
-                    <CardDescription className="text-[hsl(var(--anthracite))]/70">{plan.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex justify-between items-center mb-4">
-                      <Badge className={getDifficultyBadgeClasses(plan.difficulty)}>
-                        {plan.difficulty}
-                      </Badge>
-                       <Button size="sm" className="btn-physical">
-                         <ShoppingCart className="h-4 w-4 mr-2" />
-                         Démarrer
-                       </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+          {/* Two selection images */}
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            {/* Yoga - Yellow button */}
+            <div className="relative overflow-hidden rounded-2xl">
+              <img 
+                src={yogaSelection}
+                alt="Yoga"
+                className="w-full h-48 object-cover"
+              />
+              <Button 
+                className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-[#f5e380] text-[#373a37] font-bold rounded-full px-6 hover:bg-[#f5e380]/90"
+              >
+                Yoga
+              </Button>
             </div>
-          </TabsContent>
 
-          <TabsContent value="exercises" className="space-y-4">
-            <div className="grid grid-cols-1 gap-4">
-               {exercises.slice(0, 3).map((exercise) => (
-                 <Card key={exercise.id} className="overflow-hidden hover-scale border border-orange-lyloo/30">
-                   <div className="aspect-video bg-gradient-to-r from-orange-lyloo to-vert-pale rounded-t-lg relative">
-                     <img
-                       src="/src/assets/lyloo-yoga-nature.jpg"
-                       alt={exercise.title}
-                       className="w-full h-full object-cover"
-                     />
-                      <Badge className="absolute top-3 right-3 bg-marron-chaud/90 text-[hsl(var(--anthracite))]">
-                        {exercise.duration}
-                      </Badge>
-                      <Badge className="absolute top-3 left-3 bg-dore-clair/90 text-[hsl(var(--anthracite))]">
-                        {exercise.type}
-                      </Badge>
-                   </div>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Activity className="h-5 w-5 text-primary" />
-                      {exercise.title}
-                    </CardTitle>
-                    <CardDescription className="text-[hsl(var(--anthracite))]/70">{exercise.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex justify-between items-center mb-4">
-                      <Badge className={getDifficultyBadgeClasses(exercise.level)}>
-                        {exercise.level}
-                      </Badge>
-                      <Button 
-                        size="sm"
-                        onClick={() => setIsCalendarOpen(true)}
-                      >
-                        <Calendar className="h-4 w-4 mr-2" />
-                        Planifier
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+            {/* Recette - Orange button */}
+            <div className="relative overflow-hidden rounded-2xl">
+              <img 
+                src={recipeSelection}
+                alt="Recette"
+                className="w-full h-48 object-cover"
+              />
+              <Button 
+                className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-[#e94a38] text-[#f5f2e6] font-bold rounded-full px-6 hover:bg-[#e94a38]/90"
+              >
+                Recette
+              </Button>
             </div>
-          </TabsContent>
-        </Tabs>
+          </div>
+
+          {/* Choisis ta catégorie button */}
+          <div className="flex justify-center mb-6">
+            <Button className="bg-[#cce1b0] text-[#373a37] font-bold px-8 py-6 text-lg rounded-full hover:bg-[#cce1b0]/90">
+              Choisis ta catégorie
+            </Button>
+          </div>
+
+          {/* Categories Grid */}
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            {/* Alimentation - Orange */}
+            <div className="bg-[#e94a38] rounded-2xl p-6 h-40 flex flex-col items-center justify-center relative overflow-hidden">
+              <Utensils className="absolute text-[#373a37]/10 w-24 h-24" />
+              <span className="text-[#f5f2e6] font-bold text-xl text-center relative z-10">
+                Alimentation
+              </span>
+            </div>
+
+            {/* Activité Physique - Yellow */}
+            <div className="bg-[#f5e380] rounded-2xl p-6 h-40 flex flex-col items-center justify-center relative overflow-hidden">
+              <Activity className="absolute text-[#373a37]/10 w-24 h-24" />
+              <span className="text-[#373a37] font-bold text-xl text-center relative z-10 leading-tight">
+                Activité<br/>Physique
+              </span>
+            </div>
+          </div>
+
+          {/* Mes repas button */}
+          <div className="flex justify-center">
+            <Button className="bg-[#cce1b0] text-[#373a37] font-bold px-8 py-6 text-lg rounded-full hover:bg-[#cce1b0]/90">
+              Mes repas
+            </Button>
+          </div>
+        </div>
       </div>
-
-      {/* Calendrier d'exercices */}
-      <ExerciseCalendar
-        isOpen={isCalendarOpen}
-        onClose={() => setIsCalendarOpen(false)}
-        exercises={exercises.map(exercise => ({ 
-          id: exercise.id.toString(), 
-          title: exercise.title,
-          duration: exercise.duration,
-          level: exercise.level,
-          type: exercise.type
-        }))}
-      />
       
       <BottomTabBar />
     </div>
