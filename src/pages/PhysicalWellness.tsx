@@ -13,41 +13,45 @@ const PhysicalWellness = () => {
       {/* Custom Header with Wave Banner */}
       <div className="relative">
         {/* Wave Banner - Vert pâle */}
-        <div className="bg-[#cce1b0] pt-6 pb-16 px-6 rounded-b-[40px] relative">
-          {/* Logo LYLOO */}
-          <div className="flex justify-center mb-4 relative z-20">
+        <div className="bg-[#cce1b0] pt-4 pb-20 px-6 relative">
+          {/* Vague simulée */}
+          <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#f5f2e6] rounded-t-full transform translate-y-1/2"></div>
+          
+          {/* Logo en haut à gauche */}
+          <div className="absolute top-4 left-6 z-20">
             <img 
               src={lylooLogo} 
               alt="LYLOO" 
-              className="h-8 object-contain"
+              className="h-20"
             />
           </div>
 
-          {/* Title Section */}
-          <div className="relative z-10 flex items-start justify-center gap-4">
-            {/* Physical Icon - overlapping banner and content */}
-            <div className="absolute left-6 top-0 translate-y-12 z-20">
-              <img 
-                src={pictoPhysique}
-                alt="Physique"
-                className="w-28 h-28 object-contain"
-              />
-            </div>
-            
-            {/* Title */}
-            <div className="text-center flex flex-col items-center">
-              <h1 className="text-2xl font-bold text-[#373a37] whitespace-nowrap">
-                Bien-être
-              </h1>
-              <h2 className="text-3xl text-[#373a37] font-['Kaushan_Script'] -ml-3">
-                Physique
-              </h2>
+          {/* Icône et Titre Physique */}
+          <div className="flex items-center justify-center mt-16 relative">
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-16 z-10 flex items-center gap-6">
+              <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
+                <img 
+                  src={pictoPhysique}
+                  alt="Physique"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Titre à côté de l'icône */}
+              <div className="flex flex-col items-start">
+                <h1 className="text-[#373a37] text-xl font-atkinson font-bold whitespace-nowrap border-b-2 border-current pb-0.5 mb-1">
+                  Bien-être
+                </h1>
+                <h2 className="text-[#373a37] text-2xl font-kaushan">
+                  Physique
+                </h2>
+              </div>
             </div>
           </div>
         </div>
 
         {/* La sélection du jour - Beige background */}
-        <div className="bg-[#f5f2e6] px-6 pt-16 pb-6">
+        <div className="bg-[#f5f2e6] px-6 pt-20 pb-6">
           <h2 className="text-2xl font-bold text-[#373a37] text-center mb-6">
             La sélection du jour
           </h2>
