@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/sheet';
 import { Link } from 'react-router-dom';
 import { ReactNode } from 'react';
+import lylooLogo from '@/assets/lyloo-logo-anthracite.png';
 
 interface MobileHeaderProps {
   title: string | ReactNode;
@@ -21,7 +22,7 @@ const MobileHeader = ({ title, subtitle }: MobileHeaderProps) => {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
           <img 
-            src="/src/assets/lyloo-logo-anthracite.png" 
+            src={lylooLogo} 
             alt="LYLOO" 
             className="h-20 logo"
           />

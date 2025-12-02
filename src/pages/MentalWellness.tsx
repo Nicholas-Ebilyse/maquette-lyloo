@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import { Brain } from "lucide-react";
 import mentalIcon from "@/assets/picto-mental.png";
+import lylooLogo from "@/assets/lyloo-logo-anthracite.png";
 
 const categories = [
   { name: "Méditation", color: "beige" },
@@ -41,9 +42,9 @@ const MentalWellness = () => {
       {/* Custom Header with vert d'eau background */}
       <div className="bg-[#a5cdbc] pt-4 pb-12 px-6 rounded-b-[40px] relative">
         {/* Logo in top left */}
-        <div className="absolute top-4 left-6">
+        <div className="absolute top-4 left-6 z-20">
           <img 
-            src="/src/assets/lyloo-logo-anthracite.png" 
+            src={lylooLogo} 
             alt="LYLOO" 
             className="h-20"
           />
