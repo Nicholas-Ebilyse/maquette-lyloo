@@ -47,7 +47,7 @@ const MentalWellness = () => {
   return (
     <div className="min-h-screen bg-[hsl(var(--beige))] pb-20">
       {/* Custom Header with vert d'eau background */}
-      <div className="bg-[#a5cdbc] pt-4 pb-24 px-6 rounded-b-[40px] relative">
+      <div className="bg-[#a5cdbc] pt-4 pb-32 px-6 rounded-b-[40px] relative">
         {/* Logo in top left */}
         <div className="absolute top-4 left-6 z-20">
           <img 
@@ -60,7 +60,7 @@ const MentalWellness = () => {
         {/* Mental Icon and Title */}
         <div className="flex items-center justify-center mt-16 relative">
           {/* Mental Icon - positioned to overlap header and content */}
-          <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-16 z-10 flex items-center gap-6">
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-24 z-10 flex items-center gap-6">
             <div className="w-28 h-28 rounded-full overflow-hidden flex-shrink-0">
               <img 
                 src={mentalIcon} 
@@ -74,7 +74,7 @@ const MentalWellness = () => {
               <h1 className="text-[hsl(var(--anthracite))] text-2xl font-atkinson font-bold whitespace-nowrap">
                 Bien-être
               </h1>
-              <h2 className="text-[hsl(var(--anthracite))] text-3xl font-kaushan -ml-1">
+              <h2 className="text-[hsl(var(--anthracite))] text-3xl font-kaushan -ml-2">
                 Mental
               </h2>
             </div>
@@ -82,7 +82,7 @@ const MentalWellness = () => {
         </div>
       </div>
 
-      <main className="px-6 pt-24 pb-6">
+      <main className="px-6 pt-32 pb-6">
         {/* La sélection du jour */}
         <div className="bg-[#f5f2e6] rounded-3xl p-6 mb-8">
           <h2 className="text-[hsl(var(--anthracite))] text-2xl font-atkinson font-bold text-center mb-6">
