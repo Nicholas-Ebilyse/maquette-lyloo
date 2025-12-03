@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import BottomTabBar from "@/components/mobile/BottomTabBar";
 import {
   Carousel,
@@ -7,25 +7,23 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Brain } from "lucide-react";
 import mentalIcon from "@/assets/picto-mental.png";
 import lylooLogo from "@/assets/lyloo-logo-anthracite.png";
 import meditationSelection from "@/assets/meditation-selection.jpg";
 import sleepSelection from "@/assets/sleep-selection.jpg";
 
 const categories = [
-  { name: "Méditation", color: "beige" },
-  { name: "Respiration", color: "terracotta" },
-  { name: "Hypnose", color: "marron" },
-  { name: "Sommeil", color: "beige" },
-  { name: "Sophrologie", color: "terracotta" },
-  { name: "Yoga du rire", color: "marron" },
-  { name: "Psycho-corporel", color: "beige" },
-  { name: "Sophrologie", color: "terracotta" },
+  { name: "Méditation", color: "beige", route: "/meditation" },
+  { name: "Respiration", color: "terracotta", route: "/respiration" },
+  { name: "Hypnose", color: "marron", route: "/hypnose" },
+  { name: "Sommeil", color: "beige", route: "/sommeil" },
+  { name: "Sophrologie", color: "terracotta", route: "/sophrologie" },
+  { name: "Yoga du rire", color: "marron", route: "/yoga-du-rire" },
+  { name: "Psycho-corporel", color: "beige", route: "/psycho-corporel" },
 ];
 
 const MentalWellness = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const getBackgroundColor = (color: string) => {
     switch (color) {
@@ -148,7 +146,7 @@ const MentalWellness = () => {
               <CarouselItem key={index} className="pl-4 basis-1/2">
                 <div
                   className={`${getBackgroundColor(category.color)} rounded-3xl p-4 h-28 relative overflow-hidden cursor-pointer transition-transform hover:scale-105`}
-                  onClick={() => setSelectedCategory(category.name)}
+                  onClick={() => navigate(category.route)}
                 >
                   {/* Icon en filigrane */}
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10">
