@@ -71,10 +71,10 @@ const MentalWellness = () => {
               
               {/* Titre à côté de l'icône */}
               <div className="flex flex-col items-start">
-                <h1 className="text-[hsl(var(--anthracite))] text-xl font-atkinson font-bold whitespace-nowrap border-b-2 border-current pb-0.5 mb-1">
+                <h1 className="text-[hsl(var(--anthracite))] text-xl font-atkinson font-bold whitespace-nowrap">
                   Bien-être
                 </h1>
-                <h2 className="text-[hsl(var(--anthracite))] text-2xl font-kaushan">
+                <h2 className="text-[hsl(var(--anthracite))] text-2xl font-kaushan ml-8">
                   Mental
                 </h2>
               </div>
