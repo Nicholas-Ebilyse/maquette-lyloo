@@ -29,6 +29,15 @@ import Admin from "./pages/Admin";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
+// Mental wellness pages
+import Meditation from "./pages/mental/Meditation";
+import Respiration from "./pages/mental/Respiration";
+import Hypnose from "./pages/mental/Hypnose";
+import Sommeil from "./pages/mental/Sommeil";
+import Sophrologie from "./pages/mental/Sophrologie";
+import YogaDuRire from "./pages/mental/YogaDuRire";
+import PsychoCorporel from "./pages/mental/PsychoCorporel";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -66,7 +75,14 @@ const App = () => (
                   </ProtectedRoute>
                 } 
               />
-              <Route 
+              <Route path="/meditation" element={<ProtectedRoute><Meditation /></ProtectedRoute>} />
+              <Route path="/respiration" element={<ProtectedRoute><Respiration /></ProtectedRoute>} />
+              <Route path="/hypnose" element={<ProtectedRoute><Hypnose /></ProtectedRoute>} />
+              <Route path="/sommeil" element={<ProtectedRoute><Sommeil /></ProtectedRoute>} />
+              <Route path="/sophrologie" element={<ProtectedRoute><Sophrologie /></ProtectedRoute>} />
+              <Route path="/yoga-du-rire" element={<ProtectedRoute><YogaDuRire /></ProtectedRoute>} />
+              <Route path="/psycho-corporel" element={<ProtectedRoute><PsychoCorporel /></ProtectedRoute>} />
+              <Route
                 path="/physique" 
                 element={
                   <ProtectedRoute>
