@@ -59,8 +59,8 @@ const MentalWellness = () => {
           </div>
 
           {/* Icône et Titre Mental */}
-          <div className="flex items-center justify-center mt-16 relative">
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-20 z-10 flex items-center gap-6">
+          <div className="flex items-center justify-center mt-24 relative">
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-24 z-10 flex items-center gap-6">
               <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
                 <img 
                   src={mentalIcon} 
