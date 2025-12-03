@@ -24,8 +24,8 @@ const PhysicalWellness = () => {
           </div>
 
           {/* Icône et Titre Physique */}
-          <div className="flex items-center justify-center mt-20 relative">
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-20 z-10 flex items-center gap-6">
+          <div className="flex items-center justify-center mt-24 relative">
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-24 z-10 flex items-center gap-6">
               <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
                 <img 
                   src={pictoPhysique}
@@ -39,7 +39,7 @@ const PhysicalWellness = () => {
                 <h1 className="text-[#373a37] text-xl font-atkinson font-bold whitespace-nowrap">
                   Bien-être
                 </h1>
-                <h2 className="text-[#373a37] text-2xl font-kaushan ml-2">
+                <h2 className="text-[#373a37] text-2xl font-kaushan ml-4">
                   Physique
                 </h2>
               </div>
@@ -117,7 +117,7 @@ const PhysicalWellness = () => {
 
             {/* Activité Physique - Yellow */}
             <div className="bg-[#f5e380] rounded-2xl p-6 h-40 flex flex-col items-center justify-center relative overflow-hidden">
-              <Activity className="absolute text-[#373a37]/10 w-24 h-24" />
+              <img src={pictoPhysique} alt="" className="absolute w-24 h-24 opacity-10" />
               <span className="text-[#373a37] font-bold text-xl text-center relative z-10 leading-tight">
                 Activité<br/>Physique
               </span>
