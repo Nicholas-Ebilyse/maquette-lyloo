@@ -13,10 +13,7 @@ const PhysicalWellness = () => {
       {/* Custom Header with Wave Banner */}
       <div className="relative">
         {/* Wave Banner - Vert pâle */}
-        <div className="bg-[#cce1b0] pt-4 pb-20 px-6 relative">
-          {/* Vague simulée */}
-          <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#f5f2e6] rounded-t-full transform translate-y-1/2"></div>
-          
+        <div className="bg-[#cce1b0] pt-4 pb-24 px-6 relative">
           {/* Logo en haut à gauche */}
           <div className="absolute top-4 left-6 z-20">
             <img 
@@ -27,8 +24,8 @@ const PhysicalWellness = () => {
           </div>
 
           {/* Icône et Titre Physique */}
-          <div className="flex items-center justify-center mt-16 relative">
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-16 z-10 flex items-center gap-6">
+          <div className="flex items-center justify-center mt-20 relative">
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-20 z-10 flex items-center gap-6">
               <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
                 <img 
                   src={pictoPhysique}
@@ -39,19 +36,33 @@ const PhysicalWellness = () => {
               
               {/* Titre à côté de l'icône */}
               <div className="flex flex-col items-start">
-                <h1 className="text-[#373a37] text-xl font-atkinson font-bold whitespace-nowrap border-b-2 border-current pb-0.5 mb-1">
+                <h1 className="text-[#373a37] text-xl font-atkinson font-bold whitespace-nowrap">
                   Bien-être
                 </h1>
-                <h2 className="text-[#373a37] text-2xl font-kaushan">
+                <h2 className="text-[#373a37] text-2xl font-kaushan ml-2">
                   Physique
                 </h2>
               </div>
             </div>
           </div>
         </div>
+        
+        {/* Vague SVG */}
+        <svg 
+          className="absolute bottom-0 left-0 w-full translate-y-[calc(100%-1px)]" 
+          viewBox="0 0 1440 80" 
+          fill="none" 
+          preserveAspectRatio="none"
+        >
+          <path 
+            d="M0,0 C360,60 1080,60 1440,0 L1440,80 L0,80 Z" 
+            fill="#cce1b0"
+          />
+        </svg>
+      </div>
 
-        {/* La sélection du jour - Beige background */}
-        <div className="bg-[#f5f2e6] px-6 pt-20 pb-6">
+      {/* La sélection du jour - Beige background */}
+      <main className="px-6 pt-20 pb-6">
           <h2 className="text-2xl font-bold text-[#373a37] text-center mb-6">
             La sélection du jour
           </h2>
@@ -119,8 +130,7 @@ const PhysicalWellness = () => {
               Mes repas
             </Button>
           </div>
-        </div>
-      </div>
+      </main>
       
       <BottomTabBar />
     </div>
