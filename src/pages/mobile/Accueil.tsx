@@ -99,7 +99,7 @@ const Accueil = () => {
               onClick={() => navigate('/mental')}
               className="h-24 rounded-2xl bg-[hsl(var(--vert-eau))] hover:bg-[hsl(var(--vert-eau))]/90 text-[hsl(var(--anthracite))] font-bold flex flex-col items-center justify-center gap-2 cursor-pointer relative overflow-hidden transition-transform hover:scale-105"
             >
-              <img src={pictoMental} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+              <img src={pictoMental} alt="" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 opacity-10" />
               <img src={pictoMental} alt="Mental" className="h-8 w-8 relative z-10" />
               <span className="text-sm relative z-10">Mental</span>
             </div>
@@ -109,7 +109,7 @@ const Accueil = () => {
               onClick={() => navigate('/physique')}
               className="h-24 rounded-2xl bg-[hsl(var(--vert-pale))] hover:bg-[hsl(var(--vert-pale))]/90 text-[hsl(var(--anthracite))] font-bold flex flex-col items-center justify-center gap-2 cursor-pointer relative overflow-hidden transition-transform hover:scale-105"
             >
-              <img src={pictoPhysique} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+              <img src={pictoPhysique} alt="" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 opacity-10" />
               <img src={pictoPhysique} alt="Physique" className="h-8 w-8 relative z-10" />
               <span className="text-sm relative z-10">Physique</span>
             </div>
@@ -119,7 +119,7 @@ const Accueil = () => {
               onClick={() => navigate('/communaute')}
               className="h-24 rounded-2xl bg-[hsl(var(--dore))] hover:bg-[hsl(var(--dore))]/90 text-[hsl(var(--anthracite))] font-bold flex flex-col items-center justify-center gap-2 cursor-pointer relative overflow-hidden transition-transform hover:scale-105"
             >
-              <img src={pictoCommunaute} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+              <img src={pictoCommunaute} alt="" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 opacity-10" />
               <img src={pictoCommunaute} alt="Communauté" className="h-8 w-8 relative z-10" />
               <span className="text-sm relative z-10">Communauté</span>
             </div>
@@ -129,7 +129,7 @@ const Accueil = () => {
               onClick={() => navigate('/suivi')}
               className="h-24 rounded-2xl bg-[hsl(var(--terracotta))] hover:bg-[hsl(var(--terracotta))]/90 text-[hsl(var(--anthracite))] font-bold flex flex-col items-center justify-center gap-2 cursor-pointer relative overflow-hidden transition-transform hover:scale-105"
             >
-              <img src={pictoPhysique} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+              <img src={pictoPhysique} alt="" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 opacity-10" />
               <img src={pictoSuivi} alt="Suivi" className="h-8 w-8 relative z-10" />
               <span className="text-sm relative z-10">Suivi</span>
             </div>
