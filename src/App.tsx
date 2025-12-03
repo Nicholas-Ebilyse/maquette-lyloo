@@ -21,6 +21,8 @@ import Objectifs from "./pages/mobile/Objectifs";
 // Existing pages
 import MentalWellness from "./pages/MentalWellness";
 import PhysicalWellness from "./pages/PhysicalWellness";
+import Alimentation from "./pages/Alimentation";
+import ActivitePhysique from "./pages/ActivitePhysique";
 import Recipes from "./pages/Recipes";
 import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
@@ -73,6 +75,22 @@ const App = () => (
                 } 
               />
               <Route 
+                path="/alimentation" 
+                element={
+                  <ProtectedRoute>
+                    <Alimentation />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/activite-physique" 
+                element={
+                  <ProtectedRoute>
+                    <ActivitePhysique />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route
                 path="/communaute" 
                 element={
                   <ProtectedRoute>

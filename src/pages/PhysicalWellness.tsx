@@ -1,13 +1,14 @@
-import MobileHeader from "@/components/mobile/MobileHeader";
+import { useNavigate } from "react-router-dom";
 import BottomTabBar from "@/components/mobile/BottomTabBar";
 import { Button } from "@/components/ui/button";
-import { Utensils, Activity } from "lucide-react";
+import { Utensils } from "lucide-react";
 import lylooLogo from '@/assets/lyloo-logo-anthracite.png';
 import pictoPhysique from '@/assets/picto-physique.png';
 import yogaSelection from '@/assets/lyloo-yoga-selection.jpg';
 import recipeSelection from '@/assets/lyloo-recipe-selection.jpg';
 
 const PhysicalWellness = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-[#f5f2e6] pb-20">
       {/* Custom Header with Wave Banner */}
@@ -39,7 +40,7 @@ const PhysicalWellness = () => {
                 <h1 className="text-[#373a37] text-xl font-atkinson font-bold whitespace-nowrap">
                   Bien-être
                 </h1>
-                <h2 className="text-[#373a37] text-2xl font-kaushan ml-4">
+                <h2 className="text-[#373a37] text-2xl font-kaushan ml-8">
                   Physique
                 </h2>
               </div>
@@ -108,7 +109,10 @@ const PhysicalWellness = () => {
           {/* Categories Grid */}
           <div className="grid grid-cols-2 gap-4 mb-6">
             {/* Alimentation - Orange */}
-            <div className="bg-[#e94a38] rounded-2xl p-6 h-40 flex flex-col items-center justify-center relative overflow-hidden">
+            <div 
+              onClick={() => navigate('/alimentation')}
+              className="bg-[#e94a38] rounded-2xl p-6 h-40 flex flex-col items-center justify-center relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+            >
               <Utensils className="absolute text-[#373a37]/10 w-24 h-24" />
               <span className="text-[#f5f2e6] font-bold text-xl text-center relative z-10">
                 Alimentation
@@ -116,7 +120,10 @@ const PhysicalWellness = () => {
             </div>
 
             {/* Activité Physique - Yellow */}
-            <div className="bg-[#f5e380] rounded-2xl p-6 h-40 flex flex-col items-center justify-center relative overflow-hidden">
+            <div 
+              onClick={() => navigate('/activite-physique')}
+              className="bg-[#f5e380] rounded-2xl p-6 h-40 flex flex-col items-center justify-center relative overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+            >
               <img src={pictoPhysique} alt="" className="absolute w-24 h-24 opacity-10" />
               <span className="text-[#373a37] font-bold text-xl text-center relative z-10 leading-tight">
                 Activité<br/>Physique
