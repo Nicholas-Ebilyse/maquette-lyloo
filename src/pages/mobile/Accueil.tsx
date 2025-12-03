@@ -2,11 +2,14 @@ import MobileHeader from '@/components/mobile/MobileHeader';
 import BottomTabBar from '@/components/mobile/BottomTabBar';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Brain, Activity, Target, Sparkles, Users } from 'lucide-react';
+import { Brain, Activity } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { getOracleQuoteOfTheDay } from '@/data/oracleQuotes';
 import { useAuth } from '@/hooks/useAuth';
-
+import pictoMental from '@/assets/picto-mental.png';
+import pictoPhysique from '@/assets/picto-physique.png';
+import pictoCommunaute from '@/assets/picto-communaute.png';
+import pictoSuivi from '@/assets/picto-suivi.png';
 const Accueil = () => {
   const navigate = useNavigate();
   const { profile } = useAuth();
@@ -91,37 +94,45 @@ const Accueil = () => {
           </h2>
           
           <div className="grid grid-cols-2 gap-3">
-            <Button
+            {/* Mental */}
+            <div
               onClick={() => navigate('/mental')}
-              className="h-24 btn-pill bg-[hsl(var(--vert-eau))] hover:bg-[hsl(var(--vert-eau))]/90 text-[hsl(var(--anthracite))] font-bold flex-col gap-2"
+              className="h-24 rounded-2xl bg-[hsl(var(--vert-eau))] hover:bg-[hsl(var(--vert-eau))]/90 text-[hsl(var(--anthracite))] font-bold flex flex-col items-center justify-center gap-2 cursor-pointer relative overflow-hidden transition-transform hover:scale-105"
             >
-              <Brain className="h-6 w-6" />
-              <span className="text-sm">Mental</span>
-            </Button>
+              <img src={pictoMental} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+              <img src={pictoMental} alt="Mental" className="h-8 w-8 relative z-10" />
+              <span className="text-sm relative z-10">Mental</span>
+            </div>
 
-            <Button
+            {/* Physique */}
+            <div
               onClick={() => navigate('/physique')}
-              className="h-24 btn-pill bg-[hsl(var(--vert-pale))] hover:bg-[hsl(var(--vert-pale))]/90 text-[hsl(var(--anthracite))] font-bold flex-col gap-2"
+              className="h-24 rounded-2xl bg-[hsl(var(--vert-pale))] hover:bg-[hsl(var(--vert-pale))]/90 text-[hsl(var(--anthracite))] font-bold flex flex-col items-center justify-center gap-2 cursor-pointer relative overflow-hidden transition-transform hover:scale-105"
             >
-              <Activity className="h-6 w-6" />
-              <span className="text-sm">Physique</span>
-            </Button>
+              <img src={pictoPhysique} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+              <img src={pictoPhysique} alt="Physique" className="h-8 w-8 relative z-10" />
+              <span className="text-sm relative z-10">Physique</span>
+            </div>
 
-            <Button
+            {/* Communauté */}
+            <div
               onClick={() => navigate('/communaute')}
-              className="h-24 btn-pill bg-[hsl(var(--dore))] hover:bg-[hsl(var(--dore))]/90 text-[hsl(var(--anthracite))] font-bold flex-col gap-2"
+              className="h-24 rounded-2xl bg-[hsl(var(--dore))] hover:bg-[hsl(var(--dore))]/90 text-[hsl(var(--anthracite))] font-bold flex flex-col items-center justify-center gap-2 cursor-pointer relative overflow-hidden transition-transform hover:scale-105"
             >
-              <Users className="h-6 w-6" />
-              <span className="text-sm">Communauté</span>
-            </Button>
+              <img src={pictoCommunaute} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+              <img src={pictoCommunaute} alt="Communauté" className="h-8 w-8 relative z-10" />
+              <span className="text-sm relative z-10">Communauté</span>
+            </div>
 
-            <Button
-              onClick={() => navigate('/objectifs')}
-              className="h-24 btn-pill bg-[hsl(var(--terracotta))] hover:bg-[hsl(var(--terracotta))]/90 text-[hsl(var(--anthracite))] font-bold flex-col gap-2"
+            {/* Suivi */}
+            <div
+              onClick={() => navigate('/suivi')}
+              className="h-24 rounded-2xl bg-[hsl(var(--terracotta))] hover:bg-[hsl(var(--terracotta))]/90 text-[hsl(var(--anthracite))] font-bold flex flex-col items-center justify-center gap-2 cursor-pointer relative overflow-hidden transition-transform hover:scale-105"
             >
-              <Target className="h-6 w-6" />
-              <span className="text-sm">Objectifs</span>
-            </Button>
+              <img src={pictoPhysique} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+              <img src={pictoSuivi} alt="Suivi" className="h-8 w-8 relative z-10" />
+              <span className="text-sm relative z-10">Suivi</span>
+            </div>
           </div>
         </div>
       </main>
