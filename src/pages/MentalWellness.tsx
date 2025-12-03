@@ -46,47 +46,54 @@ const MentalWellness = () => {
 
   return (
     <div className="min-h-screen bg-[hsl(var(--beige))] pb-20">
-      {/* Custom Header avec fond vert d'eau et forme de vague simulée */}
-      {/* J'ai réduit le padding bas (pb-20 au lieu de pb-40) pour remonter l'icône */}
-      {/* J'ai remplacé rounded-b-[40px] par un div pour simuler la vague */}
-      <div className="bg-[#a5cdbc] pt-4 pb-20 px-6 relative">
-        {/* Vague simulée avec un grand rayon de courbure */}
-        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[hsl(var(--beige))] rounded-t-full transform translate-y-1/2"></div>
-          
-        {/* Logo en haut à gauche */}
-        <div className="absolute top-4 left-6 z-20">
-          <img 
-            src={lylooLogo} 
-            alt="LYLOO" 
-            className="h-20"
-          />
-        </div>
+      {/* Custom Header avec fond vert d'eau et vague SVG */}
+      <div className="relative">
+        <div className="bg-[#a5cdbc] pt-4 pb-24 px-6 relative">
+          {/* Logo en haut à gauche */}
+          <div className="absolute top-4 left-6 z-20">
+            <img 
+              src={lylooLogo} 
+              alt="LYLOO" 
+              className="h-20"
+            />
+          </div>
 
-        {/* Icône et Titre Mental */}
-        <div className="flex items-center justify-center mt-16 relative">
-          {/* Icône Mental - Ajusté pour être à mi-chemin et remonter l'ensemble */}
-          {/* translate-y-16 au lieu de translate-y-32, et le bottom: 0 est plus haut grâce au pb-20 */}
-          <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-16 z-10 flex items-center gap-6">
-            <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
-              <img 
-                src={mentalIcon} 
-                alt="Mental" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            {/* Titre à côté de l'icône */}
-            <div className="flex flex-col items-start">
-              <h1 className="text-[hsl(var(--anthracite))] text-xl font-atkinson font-bold whitespace-nowrap border-b-2 border-current pb-0.5 mb-1">
-                Bien-être
-              </h1>
-              {/* Retrait du -ml-3 pour aligner le début de "Mental" sous la ligne de "Bien-être" */}
-              <h2 className="text-[hsl(var(--anthracite))] text-2xl font-kaushan">
-                Mental
-              </h2>
+          {/* Icône et Titre Mental */}
+          <div className="flex items-center justify-center mt-16 relative">
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 transform translate-y-20 z-10 flex items-center gap-6">
+              <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
+                <img 
+                  src={mentalIcon} 
+                  alt="Mental" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Titre à côté de l'icône */}
+              <div className="flex flex-col items-start">
+                <h1 className="text-[hsl(var(--anthracite))] text-xl font-atkinson font-bold whitespace-nowrap border-b-2 border-current pb-0.5 mb-1">
+                  Bien-être
+                </h1>
+                <h2 className="text-[hsl(var(--anthracite))] text-2xl font-kaushan">
+                  Mental
+                </h2>
+              </div>
             </div>
           </div>
         </div>
+        
+        {/* Vague SVG */}
+        <svg 
+          className="absolute bottom-0 left-0 w-full translate-y-[calc(100%-1px)]" 
+          viewBox="0 0 1440 80" 
+          fill="none" 
+          preserveAspectRatio="none"
+        >
+          <path 
+            d="M0,0 C360,60 1080,60 1440,0 L1440,80 L0,80 Z" 
+            fill="#a5cdbc"
+          />
+        </svg>
       </div>
 
       {/* Réduction du padding top du main pour remonter le contenu */}
